@@ -4,6 +4,7 @@ import Private from './components/privateRoutes'
 import { AuthProvider } from './context/auth';
 import AuthPage from './pages/auth';
 import Main from './pages/main';
+import "swiper/css";
 
 function App() {
 

@@ -14,7 +14,7 @@ import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
 export default function Footer() {
     return (
-        <Container as="footer" role="contentinfo" maxW={'full'} bg='lightgray'>
+        <Container as="footer" role="contentinfo" maxW={'full'} bg='gray.400'>
             <Stack
                 spacing="8"
                 direction={{ base: 'column', md: 'row' }}

@@ -19,7 +19,7 @@ export default function Navbar() {
   return (<>
     <Container as={'nav'} maxW={'full'} bg='blue.400' >
       <Flex minWidth='max-content' alignItems='center' gap='2'padding='2'>
-          <Heading>Cinex</Heading>
+          <Heading>Cine<sub>X</sub>+</Heading>
           {screen>800&&<Box display={'flex'} gap='2' alignItems={'center'}>
             {"|"}
           <Link to="details">details</Link>
