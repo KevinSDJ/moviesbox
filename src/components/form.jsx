@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react'
 import axios from "axios";
 import useAuth from "../context/hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Navigate} from "react-router-dom";
 
 
 export default function Form() {
@@ -34,23 +34,22 @@ export default function Form() {
         axios.post('http://challenge-react.alkemy.org',state)
         .then(res=>{
             localStorage.setItem('alkemy',res.data.token)
-            swal({title:"success",text:"welcome",icon:"success"});
-            setSession(true)
-            navigate('/')
+            swal({title:"success",text:"welcome",icon:"success"})
+            .then(()=>{
+                setSession(true)
+                navigate('/')
+            })
+            
             
         },error=>{
             swal("Oh!",`${error.response.data.error}`, "error");
         })
         setState({ email: '', password: '' })
     }
-    useEffect(()=>{
-        if(user.session){
-            navigate('/')
-        }
-    },[])
+    
 
     return <>
-        <Box as='form' autoComplete="off" width={'container.sm'} bg='white' padding={'14'} borderRadius='base' onSubmit={handleSubmit}>
+           {user.session&&<Navigate to={'/'} replace/>||<Box as='form' autoComplete="off" width={'container.sm'} bg='white' padding={'14'} borderRadius='base' onSubmit={handleSubmit}>
         <Stack spacing={4}>
             <FormControl  isInvalid={Boolean(errors.email)} isRequired>
                 <FormLabel htmlFor='email'>Email</FormLabel >
@@ -67,6 +66,7 @@ export default function Form() {
             </Button>
         </Stack>
 
-        </Box>
+        </Box>}
+        
     </>
 }
