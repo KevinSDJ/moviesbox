@@ -49,7 +49,7 @@ export default function Form() {
     
 
     return <>
-           {user.session&&<Navigate to={'/'} replace/>||<Box as='form' autoComplete="off" width={'container.sm'} bg='white' padding={'14'} borderRadius='base' onSubmit={handleSubmit}>
+           {user.session&&<Navigate to={'/'} replace/>||<Box as='form' autoComplete="off" width={'500px'} bg='white' padding={'10'} borderRadius='base' onSubmit={handleSubmit}>
         <Stack spacing={4}>
             <FormControl  isInvalid={Boolean(errors.email)} isRequired>
                 <FormLabel htmlFor='email'>Email</FormLabel >

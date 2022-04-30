@@ -6,7 +6,7 @@ import Form from '../components/form';
 export default function AuthPage(){
 
 
-    return (<Container maxWidth={'full'} display='flex' height='container.lg' alignItems={'center'} justifyContent={'center'} bg='blue.700' >
+    return (<Container maxWidth={'full'} display='flex' height='100vh' alignItems={'center'} justifyContent={'center'} bg='blue.700' >
         <Form/>
     </Container>)
 }

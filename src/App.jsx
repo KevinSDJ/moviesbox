@@ -1,6 +1,6 @@
 import {BrowserRouter,Route,Routes} from 'react-router-dom';
 import Home from './components/containers/home';
-import Private from './components/privateRoutes'
+import Private from './components/middlewarecomponent/privateRoutes'
 import { AuthProvider } from './context/auth';
 import AuthPage from './pages/auth';
 import Main from './pages/main';

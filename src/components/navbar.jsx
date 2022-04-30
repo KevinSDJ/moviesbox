@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom'
-import { Container, Flex,Heading,Spacer,Button,ButtonGroup, Box} from "@chakra-ui/react";
+import { Container, Flex,Heading,Spacer,Button,ButtonGroup, Box,Avatar} from "@chakra-ui/react";
 import MobileMenu from './menu';
 
 
@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (<>
     <Container as={'nav'} maxW={'full'} bg='blue.400' >
-      <Flex minWidth='max-content' alignItems='center' gap='2'padding='2'>
+      <Flex minWidth='max-content'  alignItems='center' gap='2'padding='10px'>
           <Heading>Cine<sub>X</sub>+</Heading>
           {screen>800&&<Box display={'flex'} gap='2' alignItems={'center'}>
             {"|"}
@@ -29,7 +29,8 @@ export default function Navbar() {
         <Spacer />
         {screen>800&& <ButtonGroup gap='2'>
           <Button colorScheme='teal'>favs</Button>
-          <Button colorScheme='teal'>logout</Button>
+          <Button colorScheme='teal'>sign in</Button>
+          <Avatar/>
         </ButtonGroup>}
         {screen<800&&<MobileMenu/>}
       </Flex>
