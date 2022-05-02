@@ -1,17 +1,14 @@
-import { Menu, MenuButton, IconButton, Drawer, DrawerOverlay, DrawerContent ,DrawerHeader,DrawerBody} from '@chakra-ui/react'
+import { Menu, MenuButton, IconButton, Drawer, DrawerOverlay, DrawerContent, DrawerHeader, DrawerBody } from '@chakra-ui/react'
 import { useState } from 'react'
 import { CgMenu } from 'react-icons/cg'
-import {VscChromeClose} from 'react-icons/vsc'
+import { VscChromeClose } from 'react-icons/vsc'
 
-
-
-
-export default function MobileMenu() {
-    const [isOpen, setIOpen] = useState(false)
-    const onClose=()=>{
-        setIOpen(!isOpen)
-    }
-    return (<Menu>
+export default function MobileMenu () {
+  const [isOpen, setIOpen] = useState(false)
+  const onClose = () => {
+    setIOpen(!isOpen)
+  }
+  return (<Menu>
         <MenuButton
             as={IconButton}
             aria-label='Options'
@@ -19,7 +16,7 @@ export default function MobileMenu() {
             variant={'solid'}
             onClick={onClose}
         />
-        <Drawer placement={'right'} size='sm' onClose={onClose}  isOpen={isOpen}>
+        <Drawer placement={'right'} size='sm' onClose={onClose} isOpen={isOpen}>
             <DrawerOverlay />
             <DrawerContent>
                 <DrawerHeader borderBottomWidth='1px'><IconButton onClick={onClose} icon={<VscChromeClose/>} /></DrawerHeader>
