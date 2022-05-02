@@ -1,0 +1,21 @@
+-Acciones necesarias
+// ver trending de la semana 
+getTrendingMovie
+// ver proximos estrenos
+getUpcommingM
+// ver ultimos agregados
+getLatestM
+// ver los top rating
+geTopRatingM
+// ver los mas populares
+getPopulaM
+-Secciones para mostrar
+
+
+
+
+
+
+
+-Recursos
+https://image.tmdb.org/t/p/original/${movieDetail.backdrop_path}`
