@@ -4,10 +4,9 @@ import Private from './components/middlewarecomponent/privateRoutes'
 import { AuthProvider } from './context/auth'
 import AuthPage from './pages/auth'
 import { useEffect } from 'react'
-import { fetchtrendingweek } from './store/actions/datamovieactions'
+import { fetchtrendingweek, fetchupcomming } from './store/actions/datamovieactions'
 import { getScreenSize } from './store/slices/componentdata'
 import { useDispatch } from 'react-redux'
-import { unwrapResult } from '@reduxjs/toolkit'
 import Main from './pages/main'
 import 'swiper/css'
 
@@ -19,8 +18,7 @@ function App () {
   }
   useEffect(() => {
     dispatch(fetchtrendingweek())
-      .then(unwrapResult)
-      .then(result => console.log(result))
+    dispatch(fetchupcomming())
     dispatch(getScreenSize(window.innerWidth))
     window.addEventListener('resize', resize)
     return () => {

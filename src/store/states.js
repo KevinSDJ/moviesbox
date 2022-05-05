@@ -4,6 +4,8 @@
 const initstate = {
   searchs: { data: [], status: '' },
   topTranding: { data: [], status: '' },
+  popularity: { data: [], status: '' },
+  upcomming: { data: [], status: '' },
   favs: [],
   like: []
 }

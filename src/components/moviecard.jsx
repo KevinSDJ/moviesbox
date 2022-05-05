@@ -44,7 +44,7 @@ export default function MovieCard ({ title, id, image, date, voteaverage }) {
                   <CircularProgressLabel>{voteaverage + '%'}</CircularProgressLabel>
               </CircularProgress>
               <Stack direction={'row'} ref={boxbuttonsoptions} spacing={3} opacity={0} padding={'10px 0'}>
-                  <IconButton aria-label='add_to_favourite' variant={'outline'} icon={<AiOutlineHeart/>}/>
+                  <IconButton aria-label='add_to_favourite' variant={'outline'} icon={<AiOutlineHeart />}/>
                   <IconButton arial-label='add_to_watch_list' variant={'outline'} icon={<MdOutlineBookmarkAdd/>} />
               </Stack>
           </Box>

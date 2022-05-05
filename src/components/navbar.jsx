@@ -7,12 +7,11 @@ import { useSelector } from 'react-redux'
 export default function Navbar () {
   const { screensize } = useSelector(state => state.behaviorcomponent)
   return (<>
-    <Container as={'nav'} maxW={'full'} bg='blue.400' >
-      <Flex minWidth='max-content' alignItems='center' gap='2' padding='10px'>
+    <Container as={'nav'} maxW={'full'} pos={'fixed'} zIndex={20} bg='blue.400' backgroundColor={'transparent'} backdropBlur={'blur(10px)'} >
+      <Flex minWidth='max-content' alignItems='center' gap='2' padding='20px 50px'>
         <Heading>Cine<sub>X</sub>+</Heading>
         {screensize > 800 && <Box display={'flex'} gap='2' alignItems={'center'}>
           {'|'}
-          <Link to="details">details</Link>
           <Link to="/">home</Link>
         </Box>}
         <Spacer />
