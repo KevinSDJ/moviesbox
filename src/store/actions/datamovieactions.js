@@ -2,10 +2,6 @@ import axios from 'axios'
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 export const fetchtrendingweek = createAsyncThunk('apidata/fetchtrendingweek', async () => {
-<<<<<<< HEAD
-  const response = await axios.get('https://api.themoviedb.org/3/trending/movie/week?api_key=1b8860ae930c966f835fc2abaafdade9')
-  return response.data
-=======
   const prom = new Promise((resolve, reject) => {
     axios.get('https://api.themoviedb.org/3/trending/movie/week?api_key=1b8860ae930c966f835fc2abaafdade9')
       .then(res => {
@@ -34,5 +30,4 @@ export const fetchupcomming = createAsyncThunk('apidata/fetchupcomming', async (
   })
   await prom
   return prom
->>>>>>> f56a35d (data)
 })
