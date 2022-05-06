@@ -14,9 +14,7 @@ export default function SlideBackground ({ data }) {
       spaceBetween={30}
       centeredSlides={true}
       autoplay={{
-        waitForTransition: true,
-        delay: 10000,
-        disableOnInteraction: false
+        delay: 10000
       }}
       modules={[Autoplay, Pagination]}
       className="mySwiper"

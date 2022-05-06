@@ -1,35 +1,36 @@
-import { InputGroup,Input,InputRightElement ,IconButton } from "@chakra-ui/react"
-import { useEffect, useRef, useState } from "react"
-import {HiSearchCircle} from 'react-icons/hi'
+import { InputGroup, Input, InputRightElement, Icon } from '@chakra-ui/react'
+import { useEffect, useState } from 'react'
+import { FaSearch } from 'react-icons/fa'
 
-export default function Searchbar(){
-    let [display,setDisplay]= useState(false)
-    let searchref= useRef()
-    let searchs=[]
-    useEffect(()=>{
-        console.log(display)
-    },[display])
-    return (<InputGroup 
+export default function Searchbar () {
+  const [input, setInput] = useState('')
+  const handleChange = (e) => {
+    setInput(e.target.value)
+  }
+  useEffect(() => {
+    console.log(input)
+  }, [input])
+  return (<InputGroup
         size='md'
-        ref={searchref}
+        background={'linear-gradient(transparent,gray)'}
+        borderRadius={'4px'}
+        padding={'1'}
        >
     <Input
       size={'lg'}
+      fontSize={'2xl'}
       name="searchbar"
+      onChange={handleChange}
       pr='4.5rem'
       type={'text'}
-      placeholder='search movie or series'
-      color={'whiteAlpha.900'}
-      variant='flushed' 
-      onFocus={(e)=>{
-          setDisplay(true)
-      }}
-      onBlur={(e)=>{
-        setDisplay(false)
-      }}
+      placeholder='Type here ...'
+      color={'white'}
+      variant='flushed'
+      value={input}
+      _placeholder={{ color: 'rgba(255,255,255,0.7)' }}
     />
     <InputRightElement bg={'transparent'} >
-      <IconButton size={'sm'}  bg={'transparent'}  borderRadius={'4em'}   icon={<HiSearchCircle  fontSize={'30px'} color={'white'}/>}/>
+      <Icon as={FaSearch} fontSize={'3xl'} color={'whiteAlpha.700'} bgColor={'transparent'} borderRadius={'4em'}/>
     </InputRightElement>
   </InputGroup>)
-} 
+}

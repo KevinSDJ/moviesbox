@@ -29,7 +29,8 @@ export default function SlideItems ({ data }) {
        >
           {!data || !data.length
             ? count.map(e => <SwiperSlide style={{ width: '250px' }} key={e}><CardSkeleton/></SwiperSlide>)
-            : data.map(e => <SwiperSlide style={{ width: '250px' }} key={e.id}><MovieCard
+            : data.map(e => <SwiperSlide style={{ width: '250px' }} key={e.id}>
+              <MovieCard
           id={e.id}
           image={e.poster_path }
           title={e.original_title}

@@ -11,7 +11,7 @@ export default function Main () {
   const { upcomming } = useSelector(state => state.apidata)
   const { popularity } = useSelector(state => state.apidata)
 
-  return (<Container as='div' minW={'full'} padding='0' height={'auto'} bg={'#c2cfe5'} overflow='hidden'>
+  return (<Container minW={'full'} padding='0' height={'auto'} bg={'#c2cfe5'} sx={{ '&::-webkit-scrollbar': { display: 'none' } }} >
         <VStack
         direction={'row'}
         spacing={8}

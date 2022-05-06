@@ -4,7 +4,7 @@ import Footer from '../footer'
 import Navbar from './../navbar.jsx'
 
 export default function Home () {
-  return (<Container as='div' minW={'full'} overflowY='hidden' padding={'0'} height={'auto'}>
+  return (<Container minW={'full'} sx={{ '&::-webkit-scrollbar': { display: 'none' } }} padding={'0'} height={'auto'}>
         <Navbar/>
         <Outlet/>
         <Footer/>
