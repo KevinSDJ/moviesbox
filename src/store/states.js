@@ -12,6 +12,6 @@ const initstate = {
 // un estado para capturar exclusivamente en comportamiento de los componentes
 const componentstate = {
   searchinputfocus: false,
-  screensize: 0
+  screensize: window.innerWidth
 }
 export { componentstate, initstate }

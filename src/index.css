@@ -7,7 +7,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(48, 47, 47);
+
+ #root{
+  ::- webkit-scrollbar {
+    display: none;
+  };
+  overflow: -moz-scrollbars-none; 
+  -ms-overflow-style: none;
+ }
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

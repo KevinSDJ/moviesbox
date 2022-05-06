@@ -1,26 +1,16 @@
-
 import { Link } from 'react-router-dom'
-import { Container, Flex, Heading, Spacer, Button, ButtonGroup, Box, Avatar } from '@chakra-ui/react'
+import { Container, Flex, Heading, Spacer, Text } from '@chakra-ui/react'
 import MobileMenu from './menu'
-import { useSelector } from 'react-redux'
+import Searchbutton from './buttons/searchbutton'
 
 export default function Navbar () {
-  const { screensize } = useSelector(state => state.behaviorcomponent)
   return (<>
     <Container as={'nav'} maxW={'full'} pos={'fixed'} zIndex={20} bg='blue.400' backgroundColor={'transparent'} backdropBlur={'blur(10px)'} >
-      <Flex minWidth='max-content' alignItems='center' gap='2' padding='20px 50px'>
-        <Heading>Cine<sub>X</sub>+</Heading>
-        {screensize > 800 && <Box display={'flex'} gap='2' alignItems={'center'}>
-          {'|'}
-          <Link to="/">home</Link>
-        </Box>}
+      <Flex minWidth='max-content' alignItems='center' gap='2' padding='30px calc(10vw)'>
+      <Link to="/"><Heading>Cine<Text as='sub' color={'red.500'}>X</Text><Text as='strong' fontSize={'2xl'} color='#002855'>plus</Text></Heading></Link>
         <Spacer />
-        {screensize > 800 && <ButtonGroup gap='2'>
-          <Button colorScheme='teal'>favs</Button>
-          <Button colorScheme='teal'>sign in</Button>
-          <Avatar />
-        </ButtonGroup>}
-        {screensize < 800 && <MobileMenu />}
+        <Searchbutton/>
+        <MobileMenu/>
       </Flex>
     </Container>
   </>)

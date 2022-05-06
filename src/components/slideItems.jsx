@@ -17,7 +17,7 @@ export default function SlideItems ({ data }) {
       return Number(String(number).replace(/[$.]/g, ''))
     }
   }
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 8; i++) {
     count.push(i)
   }
   return (<>

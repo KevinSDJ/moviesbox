@@ -1,6 +1,6 @@
 import { Menu, MenuButton, IconButton, Drawer, DrawerOverlay, DrawerContent, DrawerHeader, DrawerBody } from '@chakra-ui/react'
 import { useState } from 'react'
-import { CgMenu } from 'react-icons/cg'
+import { HiMenuAlt3 } from 'react-icons/hi'
 import { VscChromeClose } from 'react-icons/vsc'
 
 export default function MobileMenu () {
@@ -11,14 +11,18 @@ export default function MobileMenu () {
   return (<Menu>
         <MenuButton
             as={IconButton}
+            bgColor={'transparent'}
             aria-label='Options'
-            icon={<CgMenu color='gray' />}
-            variant={'solid'}
+            icon={<HiMenuAlt3 color='black' fontSize={'2em'} />}
             onClick={onClose}
         />
-        <Drawer placement={'right'} size='sm' onClose={onClose} isOpen={isOpen}>
+        <Drawer
+        placement={'right'}
+        size='md'
+        onClose={onClose}
+        isOpen={isOpen}>
             <DrawerOverlay />
-            <DrawerContent>
+            <DrawerContent bgColor={'rgba(194, 207, 229,0.7) '}>
                 <DrawerHeader borderBottomWidth='1px'><IconButton onClick={onClose} icon={<VscChromeClose/>} /></DrawerHeader>
                 <DrawerBody>
                     <p>mesdsa</p>

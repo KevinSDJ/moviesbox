@@ -4,7 +4,7 @@ import Footer from '../footer'
 import Navbar from './../navbar.jsx'
 
 export default function Home () {
-  return (<Container as='div' minW={'full'} padding={'0'} color='#262626' height={'auto'}>
+  return (<Container as='div' minW={'full'} overflowY='hidden' padding={'0'} height={'auto'}>
         <Navbar/>
         <Outlet/>
         <Footer/>
