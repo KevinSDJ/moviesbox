@@ -28,7 +28,7 @@ export default function Form () {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('https://challenge-react.alkemy.org', state)
+    axios.post('http://challenge-react.alkemy.org', state, { withCredentials: true })
       .then(res => {
         localStorage.setItem('alkemy', res.data.token)
         swal({ title: 'success', text: 'welcome', icon: 'success' })
@@ -43,7 +43,7 @@ export default function Form () {
   }
 
   return <>
-           {user.session && <Navigate to={'/'} replace/> || <Box as='form' autoComplete="off" width={'500px'} bg='white' padding={'10'} borderRadius='base' onSubmit={handleSubmit}>
+           {(user.session && <Navigate to={'/'} replace/>) || <Box as='form' autoComplete="off" width={'500px'} bg='white' padding={'10'} borderRadius='base' onSubmit={handleSubmit}>
         <Stack spacing={4}>
             <FormControl isInvalid={Boolean(errors.email)} isRequired>
                 <FormLabel htmlFor='email'>Email</FormLabel >
