@@ -31,3 +31,17 @@ export const fetchupcomming = createAsyncThunk('apidata/fetchupcomming', async (
   await prom
   return prom
 })
+export const searchmovie = createAsyncThunk('apidata/searchmovie', async (title) => {
+  const prom = new Promise((resolve, reject) => {
+    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=1b8860ae930c966f835fc2abaafdade9&language=en-US&query=${title}&page=1&include_adult=false`)
+      .then(res => {
+        if (res.data.results.length) {
+          setTimeout(() => resolve(res.data), 1000)
+        } else {
+          reject(res.data.response)
+        }
+      })
+  })
+  await prom
+  return prom
+})

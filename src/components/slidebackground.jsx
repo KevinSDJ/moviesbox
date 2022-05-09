@@ -1,9 +1,10 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination } from 'swiper'
+import { Autoplay, Pagination, EffectFade } from 'swiper'
 import { Badge, Image, Box, IconButton, Divider, Grid, GridItem, Text, Heading, VStack, Skeleton, Icon } from '@chakra-ui/react'
 import Rating from './datamovie/rating'
 import { FaPlay } from 'react-icons/fa'
 import SkeletonImageBackground from './loadings/skeletonSlidebackground'
+import 'swiper/css/effect-fade'
 export default function SlideBackground ({ data }) {
   const count = []
   for (let i = 0; i < 1; i++) {
@@ -13,10 +14,11 @@ export default function SlideBackground ({ data }) {
     <Swiper
       spaceBetween={30}
       centeredSlides={true}
+      effect={'fade'}
       autoplay={{
         delay: 10000
       }}
-      modules={[Autoplay, Pagination]}
+      modules={[Autoplay, Pagination, EffectFade]}
       className="mySwiper"
     >{
         !data || data.length < 1

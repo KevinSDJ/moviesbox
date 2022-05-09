@@ -1,10 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { initstate } from './../states'
-import { fetchtrendingweek, fetchpopularity, fetchupcomming } from './../actions/datamovieactions'
+import { fetchtrendingweek, fetchpopularity, fetchupcomming, searchmovie } from './../actions/datamovieactions'
 
 const apidata = createSlice({
   name: 'apidata',
   initialState: initstate,
+  reducers: {
+    clearsearch: (state, action) => {
+      return { ...state, searchs: { data: [], status: '' } }
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchtrendingweek.pending, (state, action) => {
@@ -34,10 +39,21 @@ const apidata = createSlice({
         state.upcomming.data = action.payload.results
         state.upcomming.status = 'idle'
       })
-      .addCase(fetchupcomming.rejected, (state, action) => {
+      .addCase(fetchupcomming.rejected, (state) => {
         state.upcomming.status = 'error'
+      })
+      .addCase(searchmovie.pending, (state) => {
+        state.searchs.status = 'loading'
+      })
+      .addCase(searchmovie.fulfilled, (state, action) => {
+        state.searchs.status = 'idle'
+        state.searchs.data = action.payload.results
+      })
+      .addCase(searchmovie.rejected, (state, action) => {
+        state.searchs.status = 'error'
       })
   }
 })
 
 export { apidata }
+export const { clearsearch } = apidata.actions

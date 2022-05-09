@@ -1,15 +1,18 @@
 import { InputGroup, Input, InputRightElement, Icon } from '@chakra-ui/react'
-import { useEffect, useState } from 'react'
+import { searchmovie } from './../store/actions/datamovieactions'
+import { clearsearch } from './../store/slices/datamovies'
 import { FaSearch } from 'react-icons/fa'
+import { useDispatch } from 'react-redux'
 
 export default function Searchbar () {
-  const [input, setInput] = useState('')
+  const dispatch = useDispatch()
   const handleChange = (e) => {
-    setInput(e.target.value)
+    if (e.target.value !== '') {
+      dispatch(searchmovie(e.target.value.replace(/[$'']/g, '%20%')))
+    } else {
+      dispatch(clearsearch())
+    }
   }
-  useEffect(() => {
-    console.log(input)
-  }, [input])
   return (<InputGroup
         size='md'
         background={'linear-gradient(transparent,gray)'}
@@ -26,7 +29,6 @@ export default function Searchbar () {
       placeholder='Type here ...'
       color={'white'}
       variant='flushed'
-      value={input}
       _placeholder={{ color: 'rgba(255,255,255,0.7)' }}
     />
     <InputRightElement bg={'transparent'} >

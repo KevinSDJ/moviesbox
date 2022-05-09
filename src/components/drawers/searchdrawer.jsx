@@ -5,43 +5,48 @@ import {
   DrawerCloseButton,
   DrawerHeader,
   DrawerBody,
-  DrawerFooter,
-  Button,
-  useDisclosure
+  useDisclosure,
+  Text,
+  Spinner
 } from '@chakra-ui/react'
 import { useRef } from 'react'
+import { useSelector } from 'react-redux'
 import Searchbutton from '../buttons/searchbutton'
+import GridDisplay from '../datamovie/gridmoviesearch'
 import Searchbar from '../searchbar'
 
 const SearchDraw = () => {
+  const { data, status } = useSelector(state => state.apidata.searchs)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef()
+
   return (<>
-  <Searchbutton cb={onOpen}/>
-  <Drawer
-        isOpen={isOpen}
-        placement='left'
-        size={'full'}
-        onClose={onClose}
-        finalFocusRef={btnRef}
-    >
-        <DrawerOverlay />
-        <DrawerContent bgColor={'rgba(194, 207, 229,0.7) '}>
-            <DrawerCloseButton />
-            <DrawerHeader fontSize={'3xl'} color={'gray.700'}>Search your movie or serie</DrawerHeader>
-
-            <DrawerBody>
-                <Searchbar />
-            </DrawerBody>
-
-            <DrawerFooter>
-                <Button variant='outline' mr={3} onClick={onClose}>
-                    Cancel
-                </Button>
-                <Button colorScheme='blue'>Save</Button>
-            </DrawerFooter>
-        </DrawerContent>
-    </Drawer>
+        <Searchbutton cb={onOpen} />
+        <Drawer
+            isOpen={isOpen}
+            placement='left'
+            size={'full'}
+            onClose={onClose}
+            finalFocusRef={btnRef}
+        >
+            <DrawerOverlay />
+            <DrawerContent bgColor={'rgba(194, 207, 229,0.9) '}>
+                <DrawerCloseButton />
+                <DrawerHeader fontSize={'3xl'} color={'gray.700'}>Search your movie or serie</DrawerHeader>
+                <DrawerBody>
+                    <Searchbar />
+                    {status === 'error' && <Text fontSize={'3xl'} color='gray.600'> There is no result for your search</Text>}
+                    {status === 'loading' && <Text fontSize={'3xl'} color='gray.600'> Wait ....</Text>}
+                    {status === 'loading' && <Spinner
+                        thickness='4px'
+                        speed='0.65s'
+                        emptyColor='gray.200'
+                        color='blue.500'
+                        size='xl' />}
+                    {(status === 'idle' && <GridDisplay data={data} />)}
+                </DrawerBody>
+            </DrawerContent>
+        </Drawer>
     </>)
 }
 
