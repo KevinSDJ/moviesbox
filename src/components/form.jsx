@@ -28,7 +28,7 @@ export default function Form () {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('http://challenge-react.alkemy.org', state, { withCredentials: true })
+    axios.post('http://challenge-react.alkemy.org', state)
       .then(res => {
         localStorage.setItem('alkemy', res.data.token)
         swal({ title: 'success', text: 'welcome', icon: 'success' })
