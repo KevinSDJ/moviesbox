@@ -21,7 +21,7 @@ export default function SlideItems ({ data }) {
       modules={[Navigation, EffectCards]}
       className="mySwiper"
     >
-      {data.map(e => <SwiperSlide style={{ width: '250px' }} key={e.id}>
+      {data.map(e => <SwiperSlide style={{ width: '200px' }} key={e.id}>
             <MovieCard
               id={e.id}
               image={e.poster_path}

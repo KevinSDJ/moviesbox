@@ -28,7 +28,7 @@ export default function MovieCard ({ title, id, image, date, voteaverage }) {
     <Box
     as='div'
     padding='0'
-    width={'250px'}
+    width={'200px'}
     boxShadow='base'
     bg='transparent'
     pos='relative'

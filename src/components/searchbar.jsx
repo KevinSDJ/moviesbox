@@ -39,7 +39,7 @@ export default function Searchbar () {
       type={'text'}
       placeholder='Type here ...'
       color={'white'}
-      variant='flushed'
+      variant='unstyled'
       _placeholder={{ color: 'rgba(255,255,255,0.7)' }}
     />
     <InputRightElement bg={'transparent'} >

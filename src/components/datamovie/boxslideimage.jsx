@@ -6,7 +6,7 @@ import { useState } from 'react'
 export default function CarrItemSlide ({ id, backdroppath, voteaverage, votecount, posterpath, originaltitle, releasedate }) {
   const [openMedia, setOpenMedia] = useState(false)
   return (
-        <Box as={'section'} height={'800px'} pos={'relative'} boxShadow={'10px 10px 10px #c2cfe5 inset, -10px -10px 10px #c2cfe5 inset'} bg={'radial-gradient(transparent 30%,#c2cfe5 90%)'} >
+        <Box as={'section'} height={'100vh'} pos={'relative'} boxShadow={'10px 10px 10px #c2cfe5 inset, -10px -10px 10px #c2cfe5 inset'} bg={'radial-gradient(transparent 30%,#c2cfe5 90%)'} >
           {openMedia && <MediaPlayer id={id}/>}
         <Image
           objectFit={'fill'}
