@@ -30,7 +30,7 @@ const SearchDraw = () => {
             finalFocusRef={btnRef}
         >
             <DrawerOverlay />
-            <DrawerContent bgColor={'rgba(194, 207, 229,0.9) '}>
+            <DrawerContent bgColor={'rgba(194, 207, 229,0.6) '}>
                 <DrawerCloseButton />
                 <DrawerHeader fontSize={'3xl'} color={'gray.700'}>Search your movie or serie</DrawerHeader>
                 <DrawerBody>

@@ -1,16 +1,17 @@
+import { lazy, Suspense } from 'react'
 import { Container, Stack, Box, VStack, StackDivider, Heading } from '@chakra-ui/react'
-import SlideItems from '../components/slideItems'
 import { useSelector } from 'react-redux'
 import 'swiper/css/effect-cards'
 import 'swiper/css/navigation'
 import 'swiper/css'
-import SlideBackground from '../components/slidebackground'
-
+import LoadingMoviesItems from '../components/loadings/loadingItems'
+import SkeletonImageBackground from '../components/loadings/skeletonSlidebackground'
+const SlideItems = lazy(() => import('../components/slideItems'))
+const SlideBackground = lazy(() => import('../components/slidebackground'))
 export default function Main () {
-  const { data } = useSelector(state => state.apidata.topTranding)
+  const { topTranding } = useSelector(state => state.apidata)
   const { upcomming } = useSelector(state => state.apidata)
   const { popularity } = useSelector(state => state.apidata)
-
   return (<Container minW={'full'} padding='0' bg={'#c2cfe5'}>
         <VStack
         direction={'row'}
@@ -21,16 +22,26 @@ export default function Main () {
         padding={'0 0 90px 0'}
         >
            <Box pos={'relative'} display={'flex'} alignItems={'center'}>
-              <SlideBackground data={upcomming.data}/>
+              {upcomming.status === 'loading' && <SkeletonImageBackground/>}
+              {upcomming.status === 'idle' && <Suspense fallback={<SkeletonImageBackground/>}>
+                   <SlideBackground data={upcomming.data}/>
+                 </Suspense>}
            </Box>
            <Stack spacing={2} padding={'0 90px'} >
                 <Heading fontSize={'2xl'} color='gray.600'>Trends Week</Heading>
-                <SlideItems data={ data } />
+                {topTranding.status === 'loading' && <LoadingMoviesItems/>}
+                {topTranding.status === 'idle' && <Suspense fallback={<LoadingMoviesItems/>}>
+                     <SlideItems data={ topTranding.data } />
+                   </Suspense>}
            </Stack>
            <Stack spacing={2} padding={'0 90px'} >
                 <Heading fontSize={'2xl'} color='gray.600'>Most Popularity</Heading>
-                <SlideItems data={ popularity.data } />
+                {popularity.status === 'loading' && <LoadingMoviesItems/>}
+                {popularity.status === 'idle' && <Suspense fallback={<LoadingMoviesItems/>}>
+                     <SlideItems data={ popularity.data } />
+                   </Suspense>}
            </Stack>
+
         </VStack>
     </Container>)
 }

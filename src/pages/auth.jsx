@@ -1,12 +1,10 @@
-import React from 'react';
-import { Container  } from '@chakra-ui/react';
 
-import Form from '../components/form';
+import { Container } from '@chakra-ui/react'
 
-export default function AuthPage(){
+import Form from '../components/form'
 
-
-    return (<Container maxWidth={'full'} display='flex' height='100vh' alignItems={'center'} justifyContent={'center'} bg='blue.700' >
+export default function AuthPage () {
+  return (<Container maxWidth={'full'} display='flex' height='100vh' alignItems={'center'} justifyContent={'center'} bg='blue.700' >
         <Form/>
     </Container>)
 }
