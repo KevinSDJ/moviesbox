@@ -1,27 +1,30 @@
+'use strict'
 import { lazy, Suspense } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Pagination, EffectFade } from 'swiper'
+import { Autoplay, Virtual, EffectFade, Pagination } from 'swiper'
 import SkeletonImageBackground from './loadings/skeletonSlidebackground'
-import 'swiper/css/effect-fade'
-
+import 'swiper/css/virtual'
+import 'swiper/css/pagination'
 const CarrItemSlide = lazy(() => import('./datamovie/boxslideimage'))
 export default function SlideBackground ({ data }) {
   const count = []
   for (let i = 0; i < 1; i++) {
     count.push(i)
   }
+
   return (<>
     <Swiper
-      spaceBetween={30}
       centeredSlides={true}
-      effect={'fade'}
       autoplay={{
-        delay: 10000
+        delay: 4000,
+        disableOnInteraction: false
       }}
-      modules={[Autoplay, Pagination, EffectFade]}
+      pagination
+      modules={[Autoplay, Virtual, EffectFade, Pagination]}
       className="mySwiper"
+      virtual
     >{
-           data.map(e => <SwiperSlide key={e.id + 'image'}>
+           data.map((e, index) => <SwiperSlide virtualIndex={index} key={e.id} >
              <Suspense fallback={<SkeletonImageBackground/>}>
              <CarrItemSlide
              id={e.id}
@@ -31,7 +34,6 @@ export default function SlideBackground ({ data }) {
              voteaverage={e.vote_average}
              votecount={e.vote_count}
              posterpath={e.poster_path}
-             key={e.id}
              />
              </Suspense>
           </SwiperSlide>)

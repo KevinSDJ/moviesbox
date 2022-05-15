@@ -11,12 +11,20 @@ import {
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Plyr from 'plyr-react'
+import { useSwiper } from 'swiper/react'
 import 'plyr-react/dist/plyr.css'
 
 export default function MediaPlayer ({ id }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [trailer, setTrailer] = useState('')
-
+  const swiper = useSwiper()
+  useEffect(() => {
+    if (isOpen) {
+      swiper.autoplay.stop()
+    } else {
+      swiper.autoplay.start()
+    }
+  }, [isOpen])
   useEffect(() => {
     if (id) {
       onOpen()

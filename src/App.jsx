@@ -9,6 +9,7 @@ import { getScreenSize } from './store/slices/componentdata'
 import { useDispatch } from 'react-redux'
 import Main from './pages/main'
 import 'swiper/css'
+import MovieDetail from './pages/details'
 
 function App () {
   const dispatch = useDispatch()
@@ -26,6 +27,7 @@ function App () {
       window.addEventListener('resize', resize, false)
     }
   }, [])
+
   return (
 
     <BrowserRouter>
@@ -35,7 +37,7 @@ function App () {
          <Route path='/' element={<Private/>}>
             <Route path='/' element={<Home/>}>
               <Route path='/' element={<Main/>}/>
-              <Route path='details' element={<div>Detaisl</div>}/>
+              <Route path='movie/:id' element={<MovieDetail/>}/>
             </Route>
          </Route>
        </Routes>

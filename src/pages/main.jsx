@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Container, Stack, Box, VStack, StackDivider, Heading } from '@chakra-ui/react'
+import { Container, Stack, Box, VStack, Heading } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 import 'swiper/css/effect-cards'
 import 'swiper/css/navigation'
@@ -12,12 +12,11 @@ export default function Main () {
   const { topTranding } = useSelector(state => state.apidata)
   const { upcomming } = useSelector(state => state.apidata)
   const { popularity } = useSelector(state => state.apidata)
-  return (<Container minW={'full'} padding='0' bg={'#c2cfe5'}>
+  return (<Container minW={'full'} margin={'0'} padding={'0'} bg={'#c2cfe5'}>
         <VStack
         direction={'row'}
         spacing={8}
         w={'full'}
-        divider={<StackDivider borderColor='white'/>}
         align={'stretch'}
         padding={'0 0 90px 0'}
         >

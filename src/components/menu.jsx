@@ -2,9 +2,10 @@ import { Menu, MenuButton, IconButton, Drawer, DrawerOverlay, DrawerContent, Dra
 import { useState } from 'react'
 import { HiMenuAlt3 } from 'react-icons/hi'
 import { VscChromeClose } from 'react-icons/vsc'
-
+import { useSelector } from 'react-redux'
 export default function MobileMenu () {
   const [isOpen, setIOpen] = useState(false)
+  const { screensize } = useSelector(state => state.behaviorcomponent)
   const onClose = () => {
     setIOpen(!isOpen)
   }
@@ -13,7 +14,7 @@ export default function MobileMenu () {
             as={IconButton}
             bgColor={'transparent'}
             aria-label='Options'
-            icon={<HiMenuAlt3 color='black' fontSize={'2em'} />}
+            icon={<HiMenuAlt3 color={(screensize < 900 && 'white') || 'black'} fontSize={'2em'} />}
             onClick={onClose}
         />
         <Drawer
