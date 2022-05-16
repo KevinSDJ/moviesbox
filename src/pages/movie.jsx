@@ -1,8 +1,6 @@
-import { Container, Box, Image, Skeleton } from '@chakra-ui/react'
+import { Container, Box } from '@chakra-ui/react'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 export default function MovieDetail () {
-  const { screensize } = useSelector(state => state.behaviorcomponent)
   const { id } = useParams()
   console.log(id)
   return (

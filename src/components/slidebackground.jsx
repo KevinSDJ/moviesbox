@@ -16,15 +16,17 @@ export default function SlideBackground ({ data }) {
     <Swiper
       centeredSlides={true}
       autoplay={{
-        delay: 4000,
-        disableOnInteraction: false
+        delay: 4000 * 3,
+        disableOnInteraction: false,
+        waitForTransition: true
       }}
+
       pagination
       modules={[Autoplay, Virtual, EffectFade, Pagination]}
       className="mySwiper"
       virtual
     >{
-           data.map((e, index) => <SwiperSlide virtualIndex={index} key={e.id} >
+           data.filter(e => e?.backdrop_path !== null || e.poster_path !== null).map((e, index) => <SwiperSlide virtualIndex={index} key={e.id} >
              <Suspense fallback={<SkeletonImageBackground/>}>
              <CarrItemSlide
              id={e.id}

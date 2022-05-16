@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { Container, Stack, Box, VStack, Heading } from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 import 'swiper/css/effect-cards'
@@ -12,7 +12,9 @@ export default function Main () {
   const { topTranding } = useSelector(state => state.apidata)
   const { upcomming } = useSelector(state => state.apidata)
   const { popularity } = useSelector(state => state.apidata)
-  return (<Container minW={'full'} margin={'0'} padding={'0'} bg={'#c2cfe5'}>
+  const { screensize } = useSelector(state => state.behaviorcomponent)
+  console.log('se renderizo')
+  return (<Container minW={'full'} margin={'0'} padding={'0'} bg={(screensize > 900 && '#c2cfe5') || '#2b2d42'}>
         <VStack
         direction={'row'}
         spacing={8}
@@ -26,15 +28,15 @@ export default function Main () {
                    <SlideBackground data={upcomming.data}/>
                  </Suspense>}
            </Box>
-           <Stack spacing={2} padding={'0 90px'} >
-                <Heading fontSize={'2xl'} color='gray.600'>Trends Week</Heading>
+           <Stack spacing={2} padding={(screensize > 900 && '0 90px') || '0 10px'} >
+                <Heading fontSize={(screensize < 900 && 'sm') || '2xl'} color={(screensize > 900 && 'gray.600') || '#edf2f4'}>Trends Week</Heading>
                 {topTranding.status === 'loading' && <LoadingMoviesItems/>}
                 {topTranding.status === 'idle' && <Suspense fallback={<LoadingMoviesItems/>}>
                      <SlideItems data={ topTranding.data } />
                    </Suspense>}
            </Stack>
-           <Stack spacing={2} padding={'0 90px'} >
-                <Heading fontSize={'2xl'} color='gray.600'>Most Popularity</Heading>
+           <Stack spacing={2} padding={(screensize > 900 && '0 90px') || '0 10px'}>
+                <Heading fontSize={(screensize < 900 && 'sm') || '2xl'} color={(screensize > 900 && 'gray.600') || '#edf2f4'}>Most Popularity</Heading>
                 {popularity.status === 'loading' && <LoadingMoviesItems/>}
                 {popularity.status === 'idle' && <Suspense fallback={<LoadingMoviesItems/>}>
                      <SlideItems data={ popularity.data } />
@@ -44,3 +46,4 @@ export default function Main () {
         </VStack>
     </Container>)
 }
+React.memo(Main)

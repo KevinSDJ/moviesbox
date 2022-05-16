@@ -1,16 +1,10 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Home from './components/containers/home'
-import Private from './components/middlewarecomponent/privateRoutes'
+import { BrowserRouter, Routes } from 'react-router-dom'
 import { AuthProvider } from './context/auth'
-import AuthPage from './pages/auth'
 import { useEffect } from 'react'
 import { fetchtrendingweek, fetchupcomming, fetchpopularity } from './store/actions/datamovieactions'
 import { getScreenSize } from './store/slices/componentdata'
 import { useDispatch } from 'react-redux'
-import Main from './pages/main'
-import 'swiper/css'
-import MovieDetail from './pages/details'
-
+import AnimateRoutes from './components/routes/routes'
 function App () {
   const dispatch = useDispatch()
   useEffect(() => {
@@ -33,13 +27,7 @@ function App () {
     <BrowserRouter>
        <AuthProvider>
        <Routes>
-         <Route path='/auth' element={<AuthPage/>} />
-         <Route path='/' element={<Private/>}>
-            <Route path='/' element={<Home/>}>
-              <Route path='/' element={<Main/>}/>
-              <Route path='movie/:id' element={<MovieDetail/>}/>
-            </Route>
-         </Route>
+         <AnimateRoutes/>
        </Routes>
        </AuthProvider>
     </BrowserRouter>

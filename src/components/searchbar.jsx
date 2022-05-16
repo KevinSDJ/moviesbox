@@ -10,7 +10,7 @@ export default function Searchbar () {
   let timeout
   const inputref = useRef()
 
-  const onkey = () => {
+  const onkey = (e) => {
     clearTimeout(timeout)
     timeout = setTimeout(() => {
       if (inputref.current.value !== '') {
@@ -19,7 +19,7 @@ export default function Searchbar () {
         dispatch(clearsearch())
       }
       clearTimeout(timeout)
-    }, 1000)
+    }, 500)
   }
 
   return (<InputGroup
@@ -34,7 +34,7 @@ export default function Searchbar () {
       fontSize={'2xl'}
       name="searchbar"
       ref={inputref}
-      onKeyDown={onkey}
+      onChange={onkey}
       pr='4.5rem'
       type={'text'}
       placeholder='Type here ...'
