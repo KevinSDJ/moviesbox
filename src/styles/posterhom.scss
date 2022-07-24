@@ -1,0 +1,37 @@
+.poster-content{
+    position: relative;
+    max-width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    &>.image-poster{
+        width:100%;
+        object-fit:cover;
+        object-position: center;
+        height: auto;
+    }
+    @media (min-width:1000px) and (max-width:1800px) {
+        &::after{
+            content: '';
+            background-color:#001233;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            z-index: 2;
+            height: 100%;
+            clip-path: polygon(0 0,0 100%,50% 100%);
+        }
+        &::before{
+            content: '';
+            background-color:#001233;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            z-index: 1;
+            height: 100%;
+            clip-path: polygon(0 100%,20% 50%,100% 100%);
+        }  
+    }
+}

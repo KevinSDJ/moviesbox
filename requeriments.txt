@@ -1,21 +1,13 @@
--Acciones necesarias
-// ver trending de la semana 
-getTrendingMovie
-// ver proximos estrenos
-getUpcommingM
-// ver ultimos agregados
-getLatestM
-// ver los top rating
-geTopRatingM
-// ver los mas populares
-getPopulaM
--Secciones para mostrar
-
-
-
-
-
 
 
 -Recursos
 https://image.tmdb.org/t/p/original/${movieDetail.backdrop_path}`
+
+- Api key = 1b8860ae930c966f835fc2abaafdade9
+
+Paths:
+Movies
+trending Week =https://api.themoviedb.org/3/trending/movie/week?
+Popularity = https://api.themoviedb.org/3/movie/popular?language=en-US&
+Upcomming = https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1&api_key=1b8860ae930c966f835fc2abaafdade9
+search = `https://api.themoviedb.org/3/search/movie?api_key=1b8860ae930c966f835fc2abaafdade9&language=en-US&query=${title}&page=1&include_adult=false`
