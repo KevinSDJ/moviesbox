@@ -1,0 +1,9 @@
+.overlay-poster{
+    position: absolute;
+    right: 40px;
+    background-color: gray;
+    z-index: 4;
+    &>.overlay-poster-image{
+        width: 90px;
+    }
+}
