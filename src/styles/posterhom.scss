@@ -15,7 +15,7 @@
             left: 0;
             z-index: 2;
             height: 100%;
-            clip-path: polygon(0 100%,0 0%,30% 100%);
+            clip-path: polygon(0 100%,0 0%,40% 100%);
         }
         &::after{
             content:'';
@@ -25,7 +25,7 @@
             left: 0;
             z-index: 3;
             height: 100%;
-            clip-path: polygon(100% 0, 20% 0,100% 40%);
+            clip-path: polygon(100% 0, 50% 0,100% 100%);
 
         }
     }

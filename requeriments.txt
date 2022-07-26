@@ -1,4 +1,4 @@
-
+color primario = #274c77
 
 -Recursos
 https://image.tmdb.org/t/p/original/${movieDetail.backdrop_path}`

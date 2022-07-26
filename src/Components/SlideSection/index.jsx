@@ -1,24 +1,59 @@
 import {Swiper,SwiperSlide} from 'swiper/react'
-import {Navigation,Mousewheel,Pagination} from 'swiper'
+import {Navigation,Pagination,Virtual} from 'swiper'
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./../../styles/slideSection.scss"
+import MovieCard from '../MovieCard';
+import { useGetPopularityQuery, useGetUpcommingQuery } from '../../services/api';
 
-const SlidesSection=()=>{
-    let fakeArray= Array.from({length:20},(v,i)=>i)
-    return (<div>
-        <h5>Title</h5>
-        <Swiper
-        slidesPerView={'auto'}
-        navigation={true}
-        modules={[Navigation,Mousewheel]}
-        spaceBetween={10}
-        className="mySwiper"
-        >
-            {fakeArray.map(e=><SwiperSlide className='swiper-slide ' key={e}><img src='https://via.placeholder.com/200/92c952'/></SwiperSlide>)}
-        </Swiper>
-    </div>)
+const SlidesSection=({section})=>{
+    if(section==='popularity'){
+        let {currentData,error,isFetching}= useGetPopularityQuery()
+        if(isFetching)return (<div>Loading</div>)
+        if(currentData.length){
+            return (
+                <Swiper
+                slidesPerView={'auto'}
+                navigation={true}
+                pagination={{type:'progressbar'}}
+                parallax={true}
+                modules={[Navigation,Pagination]}
+                spaceBetween={30}
+                className="mySwiper"
+
+                >
+                    <h5>Title</h5>
+                    {currentData.map((e,i)=><SwiperSlide className='swiper-slide-section' key={e.id+e.title}  >
+                        <MovieCard title={e.title} poster={e.poster_path}/>
+                        </SwiperSlide>)}
+                </Swiper>
+            )
+        }
+    }
+    if(section==='upcomming'){
+        let {currentData,error,isFetching}= useGetUpcommingQuery()
+        if(isFetching)return (<div>Loading</div>)
+        if(currentData.length){
+            return (     
+                <Swiper
+                slidesPerView={'auto'}
+                navigation={true}
+                pagination={{type:'progressbar'}}
+                parallax={true}
+                modules={[Navigation,Pagination]}
+                spaceBetween={30}
+                className="mySwiper"
+                
+                >
+                    <h5>Title</h5>
+                    {currentData.map((e,i)=><SwiperSlide className='swiper-slide-section' key={e.id+e.title}  >
+                        <MovieCard title={e.title} poster={e.poster_path}/>
+                        </SwiperSlide>)}
+                </Swiper>
+            )
+        }
+    }
 }
 
 export default SlidesSection

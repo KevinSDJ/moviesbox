@@ -1,9 +1,13 @@
 .mySwiper {
-    width: 100%;
-    height: 100%;
+    max-width: 100% !important;
+    height: auto;
+    display:flex;
+    flex-direction: column-reverse;
+    overflow-y: visible;
+    padding: 0 1em;
   }
   
-  .swiper-slide {
+  .swiper-slide-section {
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -26,6 +30,7 @@
     height: 100%;
     object-fit: cover;
   }
-  .swiper-slide {
+  .swiper-slide-section {
     width:fit-content;
+    height: auto;
   }

@@ -1,0 +1,35 @@
+.big-skeleton{
+    width:calc(100%);
+    height: calc(100vh);
+    background-color: lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &>.inner-big-skeleton{
+        width: 95%;
+        height: 95%;
+        background-color: rgb(153, 152, 152);
+        animation-name: load;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-delay: 500ms;
+        animation-iteration-count: infinite;
+        @keyframes load {
+            0%{
+                opacity: 1;
+            }
+            25%{
+                opacity: 0.5;
+            }
+            50%{
+                opacity: 0;
+            }
+            75%{
+                opacity: 0.5;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+    }
+}
