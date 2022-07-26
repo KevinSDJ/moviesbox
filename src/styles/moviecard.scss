@@ -21,31 +21,33 @@
         align-items: center;
         flex-direction: column;
     }
-    &:hover{
-        width: 14rem;
-        transition: all linear 1s;
-        transform: scale(1.2);
-        .movie-card-overlay{
-            display: flex;
-            p{
-                animation-name: view;
-                animation-timing-function: ease-in-out;
-                animation-duration: 1s;
-            }
-            .overlay-options-card{
-                animation-name: view;
-                animation-timing-function: linear;
-                animation-duration: 1s ;
-            }
-            @keyframes view {
-                from{
-                    opacity: 0;
-                    transform: translateY(50px);
-                };
-                to{
-                    opacity: 1;
-                    transform: translateY(0);
-                };
+    @media (min-width:1000px) and (max-width:1800px) {
+        &:hover{
+            width: 14rem;
+            transition: all linear 1s;
+            transform: scale(1.2);
+            .movie-card-overlay{
+                display: flex;
+                p{
+                    animation-name: view;
+                    animation-timing-function: ease-in-out;
+                    animation-duration: 1s;
+                }
+                .overlay-options-card{
+                    animation-name: view;
+                    animation-timing-function: linear;
+                    animation-duration: 1s ;
+                }
+                @keyframes view {
+                    from{
+                        opacity: 0;
+                        transform: translateY(50px);
+                    };
+                    to{
+                        opacity: 1;
+                        transform: translateY(0);
+                    };
+                }
             }
         }
     }
