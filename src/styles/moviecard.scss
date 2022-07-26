@@ -32,6 +32,7 @@
                     animation-name: view;
                     animation-timing-function: ease-in-out;
                     animation-duration: 1s;
+                    color:white;
                 }
                 .overlay-options-card{
                     animation-name: view;
@@ -52,37 +53,3 @@
         }
     }
 }
-
-
-/*
-@media (min-width:1000px) and (max-width:1800px) {
-        &:hover{
-            width: 14rem;
-            overflow-y: visible;
-            transition: all ease-out 1s;
-            transform: scale(1.2);
-            &>.movie-card-overlay>p{
-                display: flex;
-                animation-name: view;
-                animation-timing-function: ease-in-out;
-                animation-duration: 1s;
-                background-color: black;
-                @keyframes view {
-                    0%{
-                        opacity: 0;
-                        transform: translateY(50px);
-                    }
-                    50%{
-                        opacity: 0.5;
-                        transform: translateY(25px);
-                    }
-                    100%{
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-
-            }
-        }   
-    }
-*/
