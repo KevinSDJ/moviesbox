@@ -9,7 +9,7 @@
     @media (min-width:1000px) and (max-width:1800px) {
         &::before{
             content: '';
-            background-color:#274c77;
+            background-color:#586f7c;
             position: absolute;
             width: 100%;
             left: 0;
@@ -19,7 +19,7 @@
         }
         &::after{
             content:'';
-            background-color:rgb(39, 76, 119);
+            background-color:#586f7c;
             position: absolute;
             width: 100%;
             left: 0;

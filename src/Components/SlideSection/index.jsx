@@ -1,11 +1,12 @@
 import {Swiper,SwiperSlide} from 'swiper/react'
 import {Navigation,Pagination,Virtual} from 'swiper'
+import MovieCard from '../MovieCard';
+import { useGetPopularityQuery, useGetUpcommingQuery } from '../../services/api';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./../../styles/slideSection.scss"
-import MovieCard from '../MovieCard';
-import { useGetPopularityQuery, useGetUpcommingQuery } from '../../services/api';
+
 
 const SlidesSection=({section})=>{
     if(section==='popularity'){
@@ -40,14 +41,12 @@ const SlidesSection=({section})=>{
                 slidesPerView={'auto'}
                 navigation={true}
                 pagination={{type:'progressbar'}}
-                parallax={true}
-                modules={[Navigation,Pagination]}
+                modules={[Navigation,Pagination,Virtual]}
                 spaceBetween={30}
                 className="mySwiper"
-                
                 >
                     <h5>Title</h5>
-                    {currentData.map((e,i)=><SwiperSlide className='swiper-slide-section' key={e.id+e.title}  >
+                    {currentData.map((e,i)=><SwiperSlide className='swiper-slide-section' key={e.id} >
                         <MovieCard title={e.title} poster={e.poster_path}/>
                         </SwiperSlide>)}
                 </Swiper>
