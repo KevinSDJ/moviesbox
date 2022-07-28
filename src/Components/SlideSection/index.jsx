@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./../../styles/slideSection.scss"
+import SlideSectionSkeleton from '../Skeletons/SlideSectionSkeleton';
 
 let sect={
     popularity:{
@@ -17,11 +18,9 @@ let sect={
         title:'Upcoming releases'
     }
 }
-
 const SlidesSection=({section})=>{
-    
         let {currentData,error,isFetching}= sect[section].method()
-        if(isFetching)return (<div>Loading</div>)
+        if(isFetching)return (<SlideSectionSkeleton/>)
         if(currentData.length){
             return (
                 <Swiper
@@ -36,7 +35,6 @@ const SlidesSection=({section})=>{
                 >
                     <h5 className="section-title" >{sect[section].title}</h5>
                     {currentData.map((e,i)=><SwiperSlide className='swiper-slide-section' key={e.id+e.title}  >
-                        {console.log(e)}
                         <MovieCard title={e.title} poster={e.poster_path}/>
                         </SwiperSlide>)}
                 </Swiper>

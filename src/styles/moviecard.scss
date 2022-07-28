@@ -25,7 +25,9 @@
     @media (min-width:1000px) and (max-width:1800px) {
         &:hover{
             width: 14rem;
-            transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
+            transition: all ease-in-out 1s;
+            transition-delay: 500ms;
+            box-shadow: 20px 10px 5px rgb(59, 59, 59);
             .movie-card-overlay{
                 display: flex;
                 backdrop-filter: blur(5px);

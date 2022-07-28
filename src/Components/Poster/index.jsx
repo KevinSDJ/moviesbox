@@ -1,29 +1,26 @@
-import {useEffect, useLayoutEffect, useState} from 'react'
+import {useState} from 'react'
 import { useGeTrendingWeekQuery } from "../../services/api"
 import OvPosterCard from "./../OverlayPoster";
 import {Swiper,SwiperSlide} from 'swiper/react'
-import {Autoplay,Navigation,Pagination,Virtual} from 'swiper';
+import {Autoplay,Virtual} from 'swiper';
 import './../../styles/posterhom.scss'
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { current } from '@reduxjs/toolkit';
 import BigSkeleton from '../Skeletons/BigSkeleton';
+import ImageAsync from '../Img-Async';
 
 
 const Poster=()=>{
-    const [item,setItem]= useState(null)
+    const [index,setIndex]= useState(0)
     const {currentData,error,isFetching} = useGeTrendingWeekQuery()
-    console.log(window.innerWidth / 70)
     if(isFetching)return (<BigSkeleton/>)
-    if(error)return(<div>Ops Error 400</div>)
     if(currentData.length){
         return (<>
         {<Swiper
          onActiveIndexChange={(e)=>{
-            setItem(currentData[e.activeIndex])
+            setIndex(e.activeIndex)
         }}
-        preloadImages={true}
         autoplay={{
             delay:1000*50,
             disableOnInteraction:false,
@@ -34,9 +31,9 @@ const Poster=()=>{
          className="mySwiperbig"
          virtual
         >
-            {item && <OvPosterCard title={item.title} poster={item.poster_path}/> || <OvPosterCard title={currentData[0].title} poster={currentData[0].poster_path}/>}
-            {currentData.map((e,i)=><SwiperSlide className={`swiper-slide ${i}`}  key={e.title} virtualIndex={i}>
-            <img  lazy='true' className='image-poster' srcSet={`https://image.tmdb.org/t/p/original/${e.backdrop_path}`}/>
+            <OvPosterCard title={currentData[index].title} poster={currentData[index].poster_path}/>
+            {currentData.map((e,i)=><SwiperSlide className={`swiper-slide-big ${i}`}  key={e.title} virtualIndex={i}>
+                <ImageAsync title={e.title} classname={'image-poster'} url={`https://image.tmdb.org/t/p/original/${e.backdrop_path}`}/>
                 </SwiperSlide>)}
         </Swiper>}
         </>)

@@ -1,0 +1,35 @@
+.skeletonbarslide{
+    width: 100%;
+    height: 18rem;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    .card-skeleton-section-bar{
+        width:12rem;
+        height: 16rem;
+        background-color: rgb(153, 152, 152);
+        animation-name: load;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    @keyframes load {
+        0%{
+            opacity: 1;
+        }
+        25%{
+            opacity: 0.5;
+        }
+        50%{
+            opacity: 0;
+        }
+        75%{
+            opacity: 0.5;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+}
