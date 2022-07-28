@@ -26,7 +26,6 @@ const SlidesSection=({section})=>{
                 <Swiper
                 slidesPerView={'auto'}
                 navigation={true}
-                pagination={{type:'progressbar'}}
                 parallax={true}
                 modules={[Navigation,Pagination]}
                 spaceBetween={30}

@@ -1,62 +1,90 @@
-.big-skeleton{
-    width:100%;
-    height: calc(100vh);
-    background-color: lightgrey;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &>.inner-big-skeleton{
-        width: 100%;
-        height: 100%;
-        background-color: rgb(153, 152, 152);
-        animation-name: load;
-        animation-duration: 1s;
-        animation-timing-function: linear;
-        animation-delay: 500ms;
-        animation-iteration-count: infinite;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        &>.spinner-skeleton{
-            padding: 70px;
-            background-color: transparent;
-            border: 5px solid white;
-            border-radius: 100%;
-            animation-name: spinner;
-            animation-duration: 200ms;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-        }
-        @keyframes spinner {
-            0%{
-                border-top:  blue;
-            }
-            25%{
-                border-left:blue;
-            }
-            75%{
-                border-bottom: blue;
-            }
-            100%{
-                border-right:blue;
-            }
-        }
-        @keyframes load {
-            0%{
-                opacity: 1;
-            }
-            25%{
-                opacity: 0.5;
-            }
-            50%{
-                opacity: 0;
-            }
-            75%{
-                opacity: 0.5;
-            }
-            100%{
-                opacity: 1;
-            }
-        }
+@keyframes ldio-ovzbady90h {
+    0% { opacity: 1 }
+    100% { opacity: 0 }
+  }
+  .ldio-ovzbady90h div {
+    left: 95.88px;
+    top: 48.96px;
+    position: absolute;
+    animation: ldio-ovzbady90h linear 1s infinite;
+    background: #85a2b6;
+    width: 12.24px;
+    height: 24.48px;
+    border-radius: 6.12px / 12.24px;
+    transform-origin: 6.12px 53.04px;
+  }.ldio-ovzbady90h div:nth-child(1) {
+    transform: rotate(0deg);
+    animation-delay: -0.9166666666666666s;
+    background: #85a2b6;
+  }.ldio-ovzbady90h div:nth-child(2) {
+    transform: rotate(30deg);
+    animation-delay: -0.8333333333333334s;
+    background: #85a2b6;
+  }.ldio-ovzbady90h div:nth-child(3) {
+    transform: rotate(60deg);
+    animation-delay: -0.75s;
+    background: #85a2b6;
+  }.ldio-ovzbady90h div:nth-child(4) {
+    transform: rotate(90deg);
+    animation-delay: -0.6666666666666666s;
+    background: #85a2b6;
+  }.ldio-ovzbady90h div:nth-child(5) {
+    transform: rotate(120deg);
+    animation-delay: -0.5833333333333334s;
+    background: #85a2b6;
+  }.ldio-ovzbady90h div:nth-child(6) {
+    transform: rotate(150deg);
+    animation-delay: -0.5s;
+    background: #85a2b6;
+  }.ldio-ovzbady90h div:nth-child(7) {
+    transform: rotate(180deg);
+    animation-delay: -0.4166666666666667s;
+    background: #85a2b6;
+  }.ldio-ovzbady90h div:nth-child(8) {
+    transform: rotate(210deg);
+    animation-delay: -0.3333333333333333s;
+    background: #85a2b6;
+  }.ldio-ovzbady90h div:nth-child(9) {
+    transform: rotate(240deg);
+    animation-delay: -0.25s;
+    background: #85a2b6;
+  }.ldio-ovzbady90h div:nth-child(10) {
+    transform: rotate(270deg);
+    animation-delay: -0.16666666666666666s;
+    background: #85a2b6;
+  }.ldio-ovzbady90h div:nth-child(11) {
+    transform: rotate(300deg);
+    animation-delay: -0.08333333333333333s;
+    background: #85a2b6;
+  }.ldio-ovzbady90h div:nth-child(12) {
+    transform: rotate(330deg);
+    animation-delay: 0s;
+    background: #85a2b6;
+  }
+  .loadingio-spinner-spinner-1j1fv0xbxcr {
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    align-items:center;
+    justify-content:center;
+    overflow: hidden;
+    background: #f1f2f3;
+    animation: ldio-ovzbady90h linear 1s infinite;
+    @media (min-width:1000px) and (max-width:1800px) {
+        height: 100vh !important;
     }
-}
+  }
+  .ldio-ovzbady90h {
+    width: 200px;
+    height: min-content;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+    @media (min-width:1000px) and (max-width:1800px) {
+        width: 200px;
+        height: 200px;
+    }
+  }
+  .ldio-ovzbady90h div { box-sizing: content-box; }
+  

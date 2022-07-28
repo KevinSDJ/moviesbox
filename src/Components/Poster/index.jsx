@@ -27,12 +27,12 @@ const Poster=()=>{
             pauseOnMouseEnter:false,
         }}
          centeredSlides={true}
-         modules={[Autoplay,Virtual]}
+         modules={[Autoplay]}
          className="mySwiperbig"
-         virtual
+
         >
             <OvPosterCard title={currentData[index].title} poster={currentData[index].poster_path}/>
-            {currentData.map((e,i)=><SwiperSlide className={`swiper-slide-big ${i}`}  key={e.title} virtualIndex={i}>
+            {currentData.map((e,i)=><SwiperSlide className={`swiper-slide-big ${i}`}  key={e.title} >
                 <ImageAsync title={e.title} classname={'image-poster'} url={`https://image.tmdb.org/t/p/original/${e.backdrop_path}`}/>
                 </SwiperSlide>)}
         </Swiper>}

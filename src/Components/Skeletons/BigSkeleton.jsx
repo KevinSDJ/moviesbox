@@ -2,13 +2,16 @@ import "./../../styles/bigskeleton.scss"
 
 const BigSkeleton=()=>{
     return (
-    <div className='big-skeleton'>
-        <div className='inner-big-skeleton'>
-            <div className="spinner-skeleton">
+        <div className="loadingio-spinner-spinner-1j1fv0xbxcr">
+            <div className="ldio-ovzbady90h">
+              <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
             </div>
         </div>
-    </div>)
+    )
 }
+
+
+
 
 
 export default BigSkeleton
