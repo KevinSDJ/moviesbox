@@ -1,15 +1,19 @@
 .HomeCont{
+    display: block;
+    box-sizing: content-box;
     width: 100%;
     background-color: #586f7c;
 }
 .sections-container{
+    width: 100%;
     background-color: transparent;
     display: flex;
     flex-direction: column;
-    gap: 1rem 1rem;
+    gap: 1rem 0;
+    justify-content: center;
     background-color:transparent;
     min-height: 700px;
     @media (min-width:1000px) and (max-width:1800px) {
-        padding: 4rem 2rem;
+        padding: 4rem 0;
     }
 }
