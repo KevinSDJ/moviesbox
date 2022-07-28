@@ -2,12 +2,14 @@
     width:12rem;
     height: 18rem;
     position:relative;
-    box-shadow: 10px 5px 10px black;
+    box-shadow: 10px 5px 5px rgb(59, 59, 59);
+    border-radius: 4px;
     img{
         position: absolute;
         width: 100%;
         height: 100%;
         z-index: 2;
+        border-radius: 4px;
     }
     &>.movie-card-overlay{
         position: absolute;
@@ -16,7 +18,6 @@
         width: 100%;
         height: 100%;
         display: none;
-        backdrop-filter: blur(5px);
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -24,10 +25,10 @@
     @media (min-width:1000px) and (max-width:1800px) {
         &:hover{
             width: 14rem;
-            transition: all linear 1s;
-            transform: scale(1);
+            transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 1s;
             .movie-card-overlay{
                 display: flex;
+                backdrop-filter: blur(5px);
                 p{
                     animation-name: view;
                     animation-timing-function: ease-in-out;

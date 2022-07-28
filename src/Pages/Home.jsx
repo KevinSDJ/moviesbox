@@ -9,13 +9,12 @@ const Poster = lazy(()=> import('./../Components/Poster'))
 
 
 const Home =()=>{
-    const {currentData,error,isFetching} = useGeTrendingWeekQuery()
     return (<>
     <div className='HomeCont'
     >
-        {isFetching && <BigSkeleton/> || <Suspense fallback={<BigSkeleton/>}>
+        {<Suspense fallback={<BigSkeleton/>}>
             <Poster/>
-            </Suspense>}
+        </Suspense>}
         <div className='sections-container'>
            <SlidesSection section={'popularity'}/>
            <SlidesSection section={'upcomming'}/>

@@ -7,10 +7,20 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./../../styles/slideSection.scss"
 
+let sect={
+    popularity:{
+        method:useGetPopularityQuery,
+        title:'The most popular now'
+    },
+    upcomming:{
+        method:useGetUpcommingQuery,
+        title:'Upcoming releases'
+    }
+}
 
 const SlidesSection=({section})=>{
-    if(section==='popularity'){
-        let {currentData,error,isFetching}= useGetPopularityQuery()
+    
+        let {currentData,error,isFetching}= sect[section].method()
         if(isFetching)return (<div>Loading</div>)
         if(currentData.length){
             return (
@@ -24,35 +34,14 @@ const SlidesSection=({section})=>{
                 className="mySwiper"
 
                 >
-                    <h5>Title</h5>
+                    <h5 className="section-title" >{sect[section].title}</h5>
                     {currentData.map((e,i)=><SwiperSlide className='swiper-slide-section' key={e.id+e.title}  >
+                        {console.log(e)}
                         <MovieCard title={e.title} poster={e.poster_path}/>
                         </SwiperSlide>)}
                 </Swiper>
             )
         }
-    }
-    if(section==='upcomming'){
-        let {currentData,error,isFetching}= useGetUpcommingQuery()
-        if(isFetching)return (<div>Loading</div>)
-        if(currentData.length){
-            return (     
-                <Swiper
-                slidesPerView={'auto'}
-                navigation={true}
-                pagination={{type:'progressbar'}}
-                modules={[Navigation,Pagination,Virtual]}
-                spaceBetween={30}
-                className="mySwiper"
-                >
-                    <h5>Title</h5>
-                    {currentData.map((e,i)=><SwiperSlide className='swiper-slide-section' key={e.id} >
-                        <MovieCard title={e.title} poster={e.poster_path}/>
-                        </SwiperSlide>)}
-                </Swiper>
-            )
-        }
-    }
 }
 
 export default SlidesSection

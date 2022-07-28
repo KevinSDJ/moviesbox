@@ -14,6 +14,7 @@ import BigSkeleton from '../Skeletons/BigSkeleton';
 const Poster=()=>{
     const [item,setItem]= useState(null)
     const {currentData,error,isFetching} = useGeTrendingWeekQuery()
+    console.log(window.innerWidth / 70)
     if(isFetching)return (<BigSkeleton/>)
     if(error)return(<div>Ops Error 400</div>)
     if(currentData.length){
@@ -35,7 +36,7 @@ const Poster=()=>{
         >
             {item && <OvPosterCard title={item.title} poster={item.poster_path}/> || <OvPosterCard title={currentData[0].title} poster={currentData[0].poster_path}/>}
             {currentData.map((e,i)=><SwiperSlide className={`swiper-slide ${i}`}  key={e.title} virtualIndex={i}>
-            <img className='image-poster' src={`https://image.tmdb.org/t/p/original/${e.backdrop_path}`}/>
+            <img  lazy='true' className='image-poster' srcSet={`https://image.tmdb.org/t/p/original/${e.backdrop_path}`}/>
                 </SwiperSlide>)}
         </Swiper>}
         </>)

@@ -6,8 +6,8 @@
     overflow-y: visible;
     padding: 0 1em;
   }
-  
   .swiper-slide-section {
+    border-radius: 4px;
     text-align: center;
     font-size: 18px;
     background: #fff;
@@ -33,4 +33,10 @@
   .swiper-slide-section {
     width:fit-content;
     height: auto;
+  }
+  .section-title{
+    font-size: 20px;
+    color: rgb(194, 194, 194);
+    font-size: 'Overpass',serif;
+    letter-spacing: 1px;
   }
