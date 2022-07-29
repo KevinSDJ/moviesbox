@@ -1,11 +1,13 @@
 import { Outlet } from 'react-router-dom'
-import { Navbar } from '../Components/Navbar/navbar' 
+import { Navbar } from '../Components/Navbar/navbar'
+import PlayerMedia from '../Components/videoplr'
 
-export const Layout=()=>{
-    return (<>
+export const Layout = () => {
+  return (<>
      <Navbar/>
-     <main>
-       <Outlet/>
-     </main>
+      <Outlet/>
+      <div>
+        footer
+      </div>
     </>)
 }

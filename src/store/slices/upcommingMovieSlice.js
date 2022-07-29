@@ -1,12 +1,14 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit'
 
-
-const UpcomMovSlice= createSlice({
-    name:'UpcommingMovies',
-    initialState:{upcommingMovies:[]},
-    extraReducers:{}
+const UpcomMovSlice = createSlice({
+  name: 'UpcommingMovies',
+  initialState: { upcommingMovies: [] },
+  reducers: {
+    setMovUpc: (data) => {
+      state.upcommingMovies = data
+    }
+  }
 })
 
-
-
+export const { setMovUpc } = UpcomMovSlice.actions
 export default UpcomMovSlice.reducer

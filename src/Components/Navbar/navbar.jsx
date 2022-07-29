@@ -1,28 +1,21 @@
 import { useLocation } from 'react-router-dom'
 import { HiMenuAlt3 } from 'react-icons/hi'
 import './../../styles/navbar.scss'
-import { useEffect } from 'react'
+import Logo from '../Logo'
+import SearchComponent from '../SearchComponent'
 
 export const Navbar = () => {
     let { pathname } = useLocation()
-    /*useEffect(()=>{
-        let viewscroll=(e)=>{
-            console.log(document.body.getBoundingClientRect().top)
-        }
-        window.addEventListener('scroll',viewscroll)
-        return ()=>{window.removeEventListener('scroll',viewscroll)}
-    },[])
-    */
     return (<nav className='nav'>
         <div className='innerNav'>
-            <div className='logo-nav'>
-                <p>Cinex</p>
-                <sub>x</sub>
-                <p>plus</p>
-            </div>
-            <div>
-                {pathname != '/pref' && <button>search</button>}
-                <i><HiMenuAlt3 /></i>
+            <Logo/>
+            <div className='nav-section'>
+                {pathname != '/pref' && <SearchComponent/>}
+                <div className='nav-link' >
+                   <li>My list</li>
+                   <li>About</li>
+                </div>
+                <i className='mobile-button' ><HiMenuAlt3 /></i>
             </div>
         </div>
     </nav>)

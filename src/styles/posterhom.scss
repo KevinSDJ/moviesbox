@@ -35,7 +35,7 @@
     height: fit-content !important;
     text-align: center;
     font-size: 18px;
-    background: linear-gradient(0deg,#586f7c,transparent);
+    background: linear-gradient(0deg,#586f7c,transparent,#586f7c);
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -51,12 +51,12 @@
     align-items: center;
     .image-poster{
       height: 200px;
-      position: absolute;
-      z-index: -4;
     }
     @media (min-width:1000px) and (max-width:1800px) {
       height: 100vh !important;
       .image-poster{
+        position: absolute;
+        z-index: -4;
         height: 100vh;
       }
     }
@@ -67,8 +67,6 @@
     width: 100%;
     height:auto;
     object-fit: cover;
-    position: absolute;
-    z-index: -2;
     @media (min-width:1000px) and (max-width:1800px) {
       height: 100vh !important;
     }

@@ -9,6 +9,7 @@
     border-radius: 100%;
     display: none;
     align-items: center;
+    justify-content: center;
     &>.overlay-poster-image{
         width: 200px;
         left: -150px;
@@ -16,5 +17,18 @@
     }
     @media (min-width:1000px) and (max-width:1800px) {
         display: flex;
+    }
+}
+.overlay-poster-mobile{
+    position: absolute;
+    background-color: #586f7c;
+    border: 2px solid white;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    bottom:0;
+    @media (min-width:1000px) and (max-width:1800px) {
+        display: none;
     }
 }

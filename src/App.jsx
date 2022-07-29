@@ -1,10 +1,10 @@
-import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Layout } from './Pages/Layout'
 import Home from './Pages/Home'
 
-const App =()=>{
-    return (
-    <BrowserRouter  >
+const App = () => {
+  return (
+    <BrowserRouter >
          <Routes >
             <Route path='/' element={<Layout/>}>
                 <Route path='/' element={<Home/>}/>
@@ -13,6 +13,6 @@ const App =()=>{
             <Route path='*' element={<div>404 Not-found</div>}/>
          </Routes>
     </BrowserRouter>
-    )
+  )
 }
 export default App

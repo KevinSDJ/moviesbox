@@ -1,15 +1,12 @@
-import {lazy,Suspense, useEffect,useState} from 'react'
+import { lazy, Suspense } from 'react'
 import BigSkeleton from '../Components/Skeletons/BigSkeleton'
 import SlideSectionSkeleton from '../Components/Skeletons/SlideSectionSkeleton'
 import SlidesSection from '../Components/SlideSection'
 import './../styles/home.scss'
-const Poster = lazy(()=> import('./../Components/Poster'))
+const Poster = lazy(() => import('./../Components/Poster'))
 
-
-
-
-const Home =()=>{
-    return (<>
+const Home = () => {
+  return (<>
     <div className='HomeCont'
     >
         {<Suspense fallback={<BigSkeleton/>}>
@@ -27,7 +24,4 @@ const Home =()=>{
     </>)
 }
 
-
-
 export default Home
-

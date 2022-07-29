@@ -1,0 +1,20 @@
+.logo-nav{
+    display: flex;
+    font-family: 'Overpass',serif;
+    color: white;
+    font-size: 1.2rem;
+    align-items: center;
+    width: 100px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    sub{
+        color: red;
+        font-weight: 700;
+        font-size: 1.5rem;
+    }
+    .second-word{
+        color: rgb(21, 73, 245);
+        font-weight: 800;
+        font-size: 1.2rem;
+    }
+}
