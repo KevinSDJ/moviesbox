@@ -1,3 +1,4 @@
+import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper'
 import MovieCard from '../MovieCard'
@@ -19,6 +20,7 @@ const sect = {
 }
 const SlidesSection = ({ section }) => {
   const { currentData, error, isFetching } = sect[section].method()
+  console.log("slide section ")
   if (isFetching) return (<SlideSectionSkeleton/>)
   if (currentData) {
     return (
@@ -40,4 +42,4 @@ const SlidesSection = ({ section }) => {
   }
 }
 
-export default SlidesSection
+export default React.memo(SlidesSection)

@@ -1,18 +1,21 @@
-import { useState } from 'react'
-import PlayerMedia from '../videoplr'
+import { useContext } from 'react'
+import {BsFillPlayBtnFill} from 'react-icons/bs'
+import { ContextMovieDataSelect } from '../../context/movieDataSelect'
+import TestSync from '../../hooks/test'
 import './../../styles/overlayposter.scss'
 
 const OvPosterCard = ({id, title, poster }) => {
-    const [openMedia,setOpenMedia] = useState(false)
+    const {fetchmovietrailer} = useContext(ContextMovieDataSelect)
     return (
         <>
             <div className="overlay-poster">
                 <img className="overlay-poster-image" src={`https://image.tmdb.org/t/p/original/${poster}`} alt={title} />
                 <div className="overlay-circle">
                     <p>{title}</p>
-                    <button onClick={()=>setOpenMedia(!openMedia)}>play</button>
+                    <button onClick={()=>{
+                        fetchmovietrailer(id)
+                        }}><BsFillPlayBtnFill/></button>
                 </div>
-                {openMedia && <PlayerMedia idmovie={id} closeMedia={setOpenMedia} />}
             </div >
             <div className='overlay-poster-mobile'>
                 <h4>{title}</h4>
