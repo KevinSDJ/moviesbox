@@ -1,12 +1,8 @@
-@keyframes ldio-ovzbady90h {
-    0% { opacity: 1 }
-    100% { opacity: 0 }
-  }
+
   .ldio-ovzbady90h div {
     left: 95.88px;
     top: 48.96px;
     position: absolute;
-    animation: ldio-ovzbady90h linear 1s infinite;
     background: #85a2b6;
     width: 12.24px;
     height: 24.48px;
@@ -68,8 +64,7 @@
     align-items:center;
     justify-content:center;
     overflow: hidden;
-    background: #f1f2f3;
-    animation: ldio-ovzbady90h linear 1s infinite;
+    background: hsla(210, 8%, 95%, 0);
     @media (min-width:1000px) and (max-width:1800px) {
         height: 100vh !important;
     }

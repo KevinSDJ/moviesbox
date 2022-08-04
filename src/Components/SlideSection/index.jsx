@@ -1,28 +1,45 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper'
+import { useDispatch, useSelector } from 'react-redux'
+import {fetchAllPopMov } from '../../store/slices/popularityMovieSlice'
+import {fetchAllUpcMovies} from '../../store/slices/upcommingMovieSlice'
 import MovieCard from '../MovieCard'
-import { useGetPopularityQuery, useGetUpcommingQuery } from '../../services/api'
+import SlideSectionSkeleton from '../Skeletons/SlideSectionSkeleton'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import './../../styles/slideSection.scss'
-import SlideSectionSkeleton from '../Skeletons/SlideSectionSkeleton'
-const sect = {
+
+
+
+
+export const sect = {
   popularity: {
-    method: useGetPopularityQuery,
-    title: 'The most popular now'
+    title: 'The most popular now',
+    data:()=>useSelector(state=>state.persReducer.popularity)
   },
   upcomming: {
-    method: useGetUpcommingQuery,
-    title: 'Upcoming releases'
+    title: 'Upcoming releases',
+    data:()=>useSelector(state=> state.persReducer.upcommingmovies)
+  },
+  favs:{
+    data:()=>useSelector(state=> state.persReducer.Favs.movies)
   }
 }
+export const isFavourite=(title)=>{
+  return sect.favs.data().filter(it=>it.title===title).length
+}
 const SlidesSection = ({ section }) => {
-  const { currentData, error, isFetching } = sect[section].method()
-  console.log("slide section ")
-  if (isFetching) return (<SlideSectionSkeleton/>)
-  if (currentData) {
+  const dispatch= useDispatch()
+  const data = sect[section].data()
+  useEffect(()=>{
+    data.status === 'idle' && section === 'popularity' && dispatch(fetchAllPopMov())
+    data.status === 'idle' && section === 'upcomming' && dispatch(fetchAllUpcMovies())
+  },[])
+ 
+  if (data?.status==='idle' || data.status==='loading') return (<SlideSectionSkeleton/>)
+  if (data?.status === 'success') {
     return (
                 <Swiper
                 slidesPerView={'auto'}
@@ -34,12 +51,12 @@ const SlidesSection = ({ section }) => {
 
                 >
                     <h5 className="section-title" >{sect[section].title}</h5>
-                    {currentData.map((e, i) => <SwiperSlide className='swiper-slide-section' key={e.id + e.title} >
-                        <MovieCard title={e.title} poster={e.poster_path}/>
+                    {data.movies?.results?.map((e, i) => <SwiperSlide className='swiper-slide-section' key={e.id + e.title} >
+                        <MovieCard title={e.title} poster={e.poster_path} data={e} isFav={Boolean(isFavourite(e.title))}/>
                         </SwiperSlide>)}
                 </Swiper>
     )
   }
 }
 
-export default React.memo(SlidesSection)
+export default SlidesSection

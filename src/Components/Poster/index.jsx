@@ -1,20 +1,26 @@
-import { useState } from 'react'
-import { useGeTrendingWeekQuery } from '../../services/api'
+import { useEffect, useState } from 'react'
 import OvPosterCard from './../OverlayPoster'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, Virtual } from 'swiper'
+import { Autoplay } from 'swiper'
+import BigSkeleton from '../Skeletons/BigSkeleton'
+import ImageAsync from '../Img-Async'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAllTrendMovies } from '../../store/slices/trendWeekMovieSlice'
 import './../../styles/posterhom.scss'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import BigSkeleton from '../Skeletons/BigSkeleton'
-import ImageAsync from '../Img-Async'
+
 
 const Poster = () => {
+  const dispatch= useDispatch()
+  const data = useSelector(state=> state.persReducer.trendingweek)
   const [index, setIndex] = useState(0)
-  const { currentData, error, isFetching } = useGeTrendingWeekQuery()
-  if (isFetching) return (<BigSkeleton/>)
-  if (currentData.length) {
+  useEffect(()=>{
+    data.status==='idle' && dispatch(fetchAllTrendMovies())
+  },[dispatch])
+  if (data?.status==='idle') return (<BigSkeleton/>)
+  if (data?.status==='success') {
     return (<>
         {<Swiper
          onActiveIndexChange={(e) => {
@@ -30,8 +36,8 @@ const Poster = () => {
          className="mySwiperbig"
 
         >
-            <OvPosterCard title={currentData[index].title} poster={currentData[index].poster_path} id={currentData[index].id} />
-            {currentData.map((e, i) => <SwiperSlide className={`swiper-slide-big ${i}`} key={e.title} >
+            <OvPosterCard title={data?.movies?.results[index].title} poster={data?.movies?.results[index].poster_path} id={data?.movies?.results[index].id} />
+            {data?.movies?.results.map((e, i) => <SwiperSlide className={`swiper-slide-big ${i}`} key={e.title} >
                 <ImageAsync title={e.title} classname={'image-poster'} url={`https://image.tmdb.org/t/p/original/${e.backdrop_path}`}/>
                 </SwiperSlide>)}
         </Swiper>}

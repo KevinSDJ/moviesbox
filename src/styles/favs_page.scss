@@ -1,0 +1,27 @@
+.favs-page {
+    background-color: #586f7c;
+    min-height: 100vh;
+    padding-top: calc(90px);
+    .favs-page-main{
+        padding: 0 5rem;
+        h1{
+            color:white;
+            padding-left: 4rem;
+            font-size: 24px;
+            background-color: rgba(0, 0, 2, 0.11);
+            padding: 1rem;
+            letter-spacing: 1px;
+        }
+        .favs-page-content {
+            display: grid;
+            overflow: hidden;
+            margin: 0 auto;
+            min-height: 70vh;
+            grid-auto-rows: auto;
+            grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+            justify-content: space-around;
+            border-radius: 5px;
+            padding: 2rem 0;
+        }
+    }
+}

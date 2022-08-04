@@ -29,7 +29,6 @@ const ContextMovPlay= ({children})=>{
             setMovId(false)
             setSkip(!skip)
         }
-        console.log(src)
     },[currentData])
 
 

@@ -1,8 +1,11 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import storage from 'redux-persist/lib/storage'
-import { persistReducer, persistStore } from 'redux-persist'
+import { persistReducer } from 'redux-persist'
 import authSlice from './slices/authSlice.js'
 import favMovSlice from './slices/favlist.slice'
+import trendingMovieSlice from './slices/trendWeekMovieSlice'
+import popularityMovieSlice from './slices/popularityMovieSlice'
+import upcommingMovieSlice from './slices/upcommingMovieSlice'
 import { MoviesApi } from './../services/api'
 
 
@@ -13,6 +16,9 @@ const persistConfigure={
   storage
 }
 const reducers= combineReducers({
+  upcommingmovies:upcommingMovieSlice,
+  popularity:popularityMovieSlice,
+  trendingweek:trendingMovieSlice,
   Favs:favMovSlice,
   Auth:authSlice
 })

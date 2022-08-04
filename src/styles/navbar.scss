@@ -27,8 +27,11 @@
                 align-items: center;
                 gap: 1rem;
                 li{
+                    a{
+                        text-decoration: none;
+                        color: rgb(204, 204, 204);
+                    }
                     &:hover{
-                        color:white;
                         transform: scale(1.2);
                         text-shadow: 10px 10px 5px black;
                         transition: all linear 1s;

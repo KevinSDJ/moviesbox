@@ -29,7 +29,7 @@
             z-index: 2;
             transition: all ease-in-out 1s;
             transition-delay: 300ms;
-            box-shadow: 20px 10px 5px rgb(59, 59, 59);
+            box-shadow: 20px 10px 5px rgba(59, 59, 59, 0.575);
             .movie-card-overlay{
                 display: flex;
                 backdrop-filter: blur(3px);
