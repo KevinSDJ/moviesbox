@@ -16,16 +16,7 @@ const ContextMovPlay= ({children})=>{
     }
     useEffect(()=>{
         if(currentData?.length){
-            let source={
-                type:'video',
-                sources:[
-                    {
-                        src:currentData[0].key,
-                        provider:'youtube'
-                    }
-                ]
-            }
-            setSrc(source)
+            setSrc({url:`https://www.youtube.com/embed/${currentData[1].key}`})
             setMovId(false)
             setSkip(!skip)
         }
@@ -34,7 +25,7 @@ const ContextMovPlay= ({children})=>{
 
     
 
-    return (<ContextMovieDataSelect.Provider value={{mvId,src,fetchmovietrailer}}>
+    return (<ContextMovieDataSelect.Provider value={{mvId,src,fetchmovietrailer,clearSrc:setSrc}}>
         {children}
     </ContextMovieDataSelect.Provider>)
 }

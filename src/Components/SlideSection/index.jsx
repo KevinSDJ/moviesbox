@@ -28,7 +28,7 @@ export const sect = {
   }
 }
 export const isFavourite=(title)=>{
-  return sect.favs.data().filter(it=>it.title===title).length
+  return sect.favs.data().filter(it=>it.title===title).length > 0
 }
 const SlidesSection = ({ section }) => {
   const dispatch= useDispatch()
@@ -37,7 +37,6 @@ const SlidesSection = ({ section }) => {
     data.status === 'idle' && section === 'popularity' && dispatch(fetchAllPopMov())
     data.status === 'idle' && section === 'upcomming' && dispatch(fetchAllUpcMovies())
   },[])
- 
   if (data?.status==='idle' || data.status==='loading') return (<SlideSectionSkeleton/>)
   if (data?.status === 'success') {
     return (
@@ -52,7 +51,7 @@ const SlidesSection = ({ section }) => {
                 >
                     <h5 className="section-title" >{sect[section].title}</h5>
                     {data.movies?.results?.map((e, i) => <SwiperSlide className='swiper-slide-section' key={e.id + e.title} >
-                        <MovieCard title={e.title} poster={e.poster_path} data={e} isFav={Boolean(isFavourite(e.title))}/>
+                        <MovieCard id={e.id} title={e.title} poster={e.poster_path} data={e} isFav={isFavourite(e.title)}/>
                         </SwiperSlide>)}
                 </Swiper>
     )

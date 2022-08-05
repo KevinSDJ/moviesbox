@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 import {BsFillPlayBtnFill} from 'react-icons/bs'
 import { ContextMovieDataSelect } from '../../context/movieDataSelect'
-import TestSync from '../../hooks/test'
 import './../../styles/overlayposter.scss'
 
 const OvPosterCard = ({id, title, poster }) => {
@@ -16,7 +15,7 @@ const OvPosterCard = ({id, title, poster }) => {
                         fetchmovietrailer(id)
                         }}><BsFillPlayBtnFill/></button>
                 </div>
-            </div >
+            </div>
             <div className='overlay-poster-mobile'>
                 <h4>{title}</h4>
                 <button>dsdasd</button>

@@ -8,7 +8,7 @@ export const AdToFavsBTN=({data,disabled})=>{
     const handleClick=()=>{
         dispatch(setFavsMovie(data))
     }
-    return (<button disabled={disabled} onClick={handleClick}>
+    return (<button disabled onClick={handleClick}>
         <MdOutlinePlaylistAdd/>
     </button>)
 }

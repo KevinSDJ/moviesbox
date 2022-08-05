@@ -26,6 +26,7 @@ const Poster = () => {
          onActiveIndexChange={(e) => {
            setIndex(e.activeIndex)
          }}
+         
         autoplay={{
           delay: 1000 * 50,
           disableOnInteraction: false,

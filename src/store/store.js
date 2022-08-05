@@ -8,8 +8,6 @@ import popularityMovieSlice from './slices/popularityMovieSlice'
 import upcommingMovieSlice from './slices/upcommingMovieSlice'
 import { MoviesApi } from './../services/api'
 
-
-
 const persistConfigure={
   key:'root',
   version:1.0,

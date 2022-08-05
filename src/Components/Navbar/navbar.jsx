@@ -4,11 +4,11 @@ import {Link} from 'react-router-dom'
 import Logo from '../Logo'
 import SearchComponent from '../SearchComponent'
 import './../../styles/navbar.scss'
+import { memo } from 'react'
 
 
-export const Navbar = () => {
+const Navbar = () => {
     let { pathname } = useLocation()
-    console.log(pathname)
     return (<nav className='nav'>
         <div className='innerNav'>
             <Logo/>
@@ -23,3 +23,4 @@ export const Navbar = () => {
         </div>
     </nav>)
 }
+export default memo(Navbar)
