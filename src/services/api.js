@@ -13,9 +13,13 @@ export const MoviesApi = createApi({
         getVideoTrailer:build.query({
             query:(id)=>({url:`/movie/${id}/videos?${key_api}`}),
             transformResponse:(response,meta,arg)=> response?.results
+        }),
+        getDetailsMovie:build.query({
+            query:(id)=>({url:`/movie/${id}?${key_api}`}),
+            transformResponse:(response,meta,arg)=> response
         })
     }),
 })
 
 
-export const {useGetVideoTrailerQuery,useGetSearchQuery} = MoviesApi;
+export const {useGetVideoTrailerQuery,useGetSearchQuery,useGetDetailsMovieQuery} = MoviesApi;

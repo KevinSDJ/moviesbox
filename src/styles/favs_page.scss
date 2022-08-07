@@ -1,7 +1,10 @@
 .favs-page {
     background-color: #586f7c;
     min-height: 100vh;
-    padding-top: calc(90px);
+    .favs-top-bloq{
+        min-height: calc(100vh / 5);
+        width: 100%;
+    }
     .favs-page-main{
         padding: 0 5rem;
         h1{
@@ -18,10 +21,11 @@
             margin: 0 auto;
             min-height: 70vh;
             grid-auto-rows: auto;
-            grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-            justify-content: space-around;
+            gap:1rem ;
+            grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+           
             border-radius: 5px;
-            padding: 2rem 0;
+            padding: 2rem 0.5rem;
         }
     }
 }

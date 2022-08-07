@@ -1,0 +1,13 @@
+.movie-drawer-info{
+    width: 100%;
+    height: calc(100vh);
+    display:inline-flex;
+    align-items: center;
+    background-color: rgba(5, 5, 5, 0.493) !important;
+    .movie-info-inner-draw{
+        min-width: 400px;
+        min-height: 600px;
+        margin:0 auto;
+        background-color: white;
+    }   
+}

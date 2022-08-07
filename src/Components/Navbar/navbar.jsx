@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className='innerNav'>
             <Logo/>
             <div className='nav-section'>
-                {pathname === '/pref' && <SearchComponent/>}
+                {pathname === '/' && <SearchComponent/>}
                 <div className='nav-link' >
                    <li><Link to='/Mylist'>My list</Link></li>
                    <li>About</li>

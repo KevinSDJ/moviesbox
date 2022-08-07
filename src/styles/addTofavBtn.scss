@@ -1,0 +1,20 @@
+.add-fav-btn{
+    color:white;
+    padding:0 !important;
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+    font-size: 2rem;
+    max-width: 3rem;
+    height: fit-content !important;
+    background-color: transparent;
+    &:disabled{
+        color: gray;
+    }
+    &:not([disabled]):hover{color:rgb(77, 133, 26)}
+    svg{
+        padding: 0;
+        margin: 0;
+    }
+}

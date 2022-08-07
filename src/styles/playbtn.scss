@@ -1,0 +1,18 @@
+.play-btn{
+    color:white;
+    padding:0 !important;
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+    max-width: 3rem;
+    height: fit-content !important;
+    background-color: transparent;
+    svg{
+        padding: 0;
+        margin: 0;
+        &:hover{
+            color:rgb(240, 60, 60);
+        }
+    }
+}

@@ -7,8 +7,8 @@ export const Plyr_run= ({url})=>{
     url={url}
     pip={true}
     stopOnUnmount={true}
-    controls={false}
-    config={{youtube:{embedOptions:{origin:window.location.origin,postMessage:window.location.origin}}}}
+    controls={true}
+    config={{youtube:{playerVars:{enablejsapi:true}}}}
     fallback={<div>Loading ...</div>}
     onError={(e)=> console.log(e)} />)
 }

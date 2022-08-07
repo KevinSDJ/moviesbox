@@ -1,6 +1,6 @@
 import React, { memo} from 'react'
 import {BsFillInfoCircleFill} from 'react-icons/bs'
-import { AdToFavsBTN ,PlayBtn} from '../buttons'
+import { AdToFavsBTN ,InfMovBtn,PlayBtn} from '../buttons'
 import ImageAsync from '../Img-Async'
 import './../../styles/moviecard.scss'
 
@@ -14,7 +14,7 @@ const MovieCard =({id,title,poster,data, isFav})=>{
             <div className='overlay-options-card'>
                 <PlayBtn key={id+'play-btn'} idMovie={id}/>
                 <AdToFavsBTN key={'addFavsBtn'} disabled={isFav} data={data}/>
-                <button><BsFillInfoCircleFill/></button>
+                <InfMovBtn id={id}/>
             </div>
         </div>
     </div>)
