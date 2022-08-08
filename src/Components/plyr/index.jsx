@@ -9,6 +9,6 @@ export const Plyr_run= ({url})=>{
     stopOnUnmount={true}
     controls={true}
     config={{youtube:{playerVars:{enablejsapi:true}}}}
-    fallback={<div>Loading ...</div>}
+    fallback={<div style={{width:'600px',height:'400px',backgroundColor:'white'}}>Loading ...</div>}
     onError={(e)=> console.log(e)} />)
 }

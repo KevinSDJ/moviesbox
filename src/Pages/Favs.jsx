@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { useSelector } from "react-redux"
 import { BackBtn } from "../Components/buttons"
 import MovieCard from "../Components/MovieCard"
@@ -7,7 +8,11 @@ export const Favs = () => {
    const data = useSelector(state => state.persReducer.Favs.movies)
    if (!data?.length) return (<div>Mm? not Favourites added? </div>)
    return (
-      <div className="favs-page">
+      <motion.div
+         initial={{ opacity: 0 }}
+         animate={{ opacity: 1, transition: { duration: 0.2 } }}
+         exit={{ opacity: 0 }}
+         className="favs-page">
          <div className="favs-top-bloq"></div>
          <div className="favs-page-main">
             <BackBtn />
@@ -16,5 +21,5 @@ export const Favs = () => {
                {data.map(e => <MovieCard key={e.title + ' fav'} id={e.id} data={e} poster={e.poster_path} title={e.title} isFav={Boolean(isFavourite(e.title))} />)}
             </div>
          </div>
-      </div>)
+      </motion.div>)
 }

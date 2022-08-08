@@ -1,16 +1,15 @@
-import {HiSearchCircle} from 'react-icons/hi'
-import './../../styles/search.scss'
+import {motion} from 'framer-motion'
 
 const SearchComponent=()=>{
 
-    return(
-        <>
-        <button className='search-button'>
-            <HiSearchCircle/>
-        </button>
-        </>
-    )
+    return(<motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 ,transition:{duration:1}}}
+    exit={{ opacity: 0 }}
+    className='search-component'
+    >
+    <input type={'search'} name="search" width='100' placeholder='title' required/>
+    </motion.div>)
 }
-
 
 export default SearchComponent

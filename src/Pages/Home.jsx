@@ -1,3 +1,4 @@
+import {motion} from 'framer-motion'
 import { lazy, Suspense } from 'react'
 import BigSkeleton from '../Components/Skeletons/BigSkeleton'
 import SlideSectionSkeleton from '../Components/Skeletons/SlideSectionSkeleton'
@@ -7,7 +8,11 @@ const Poster = lazy(() => import('./../Components/Poster'))
 
 const Home = () => {
   return (<>
-    <div className='HomeCont'
+    <motion.div 
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1, transition: { duration: 0.2 } }}
+    exit={{ opacity: 0 }}
+     className='HomeCont'
     >
         {<Suspense fallback={<BigSkeleton/>}>
             <Poster/>
@@ -20,7 +25,7 @@ const Home = () => {
                  <SlidesSection section={'upcomming'}/>
             </Suspense>
         </div>
-    </div>
+    </motion.div>
     </>)
 }
 

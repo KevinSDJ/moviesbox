@@ -40,6 +40,9 @@
             }
         }
     }
+    .active-link-nav{
+        border-bottom: 1px solid white;
+    }
     @media (min-width:700px) and (max-width:1000px){
         background-color: rgb(14, 14, 32);
         .mobile-button{

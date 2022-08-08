@@ -34,7 +34,7 @@ const ContextMovPlay= ({children})=>{
             setMovId(false)
             setSkipMovDetail(!skipMovDetail)
         }
-        console.log(moviedata,src,mvId)
+
     },[trailerData,movieData])
 
 

@@ -13,7 +13,6 @@ import 'swiper/css/pagination'
 
 
 const Poster = () => {
-
   const dispatch= useDispatch()
   const data = useSelector(state=> state.persReducer.trendingweek)
   const [index, setIndex] = useState(0)
@@ -28,7 +27,7 @@ const Poster = () => {
            setIndex(e.activeIndex)
          }}
         autoplay={{
-          delay: Number(10000 * 8),
+          delay: Number(10000 * 5),
           disableOnInteraction: false,
           pauseOnMouseEnter: false
         }}
@@ -39,7 +38,7 @@ const Poster = () => {
         >
             <OvPosterCard title={data?.movies?.results[index].title} poster={data?.movies?.results[index].poster_path} id={data?.movies?.results[index].id} />
             {data?.movies?.results.map((e, i) => <SwiperSlide  className={`swiper-slide-big ${i}`} key={e.title} >
-                <ImageAsync title={e.title} classname={'image-poster'} url={`https://image.tmdb.org/t/p/original/${e.backdrop_path}`}/>
+                   <ImageAsync title={e.title} classname={'image-poster'} url={`https://image.tmdb.org/t/p/original/${e.backdrop_path}`}/>
                 </SwiperSlide>)}
         </Swiper>}
         </>)
