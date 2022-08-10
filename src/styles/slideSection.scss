@@ -1,9 +1,12 @@
 .mySwiper {
-    width:95%;
+    box-sizing: border-box;
+    max-width:99%;
     height: auto;
     display:flex;
     flex-direction: column-reverse;
     align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
   .swiper-slide-section {
     width:fit-content;
@@ -36,7 +39,36 @@
     color: rgb(194, 194, 194);
     font-size: 'Overpass',serif;
     letter-spacing: 1px;
-    @media (min-width:700px) and (max-width:1000px){
-      font-size: 16px;
+  }
+  .swiper-button-prev{
+    left: 0;
+    color: #ffb703 !important; 
+    height: 80% !important;
+    top:30%;
+    &::after{
+      text-shadow: 0px 0px 5px black;
+    }
+    
+  }
+  .swiper-button-next{
+    right: 0;
+    color: #ffb703 !important; 
+    height: 80% !important;
+    top:30%;
+    &::after{
+      text-shadow: 0px 0px 5px black;
+    }
+  }
+  @media (min-width:280px) and (max-width:700px){
+    .mySwiper{
+      padding: 0;
+    }
+    .section-title{
+      font-size: 14px !important;
+    }
+  }
+  @media (min-width:700px) and (max-width:1000px){
+    .section-title{
+      font-size: 16px !important;
     }
   }

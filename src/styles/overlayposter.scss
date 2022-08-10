@@ -44,15 +44,15 @@
             }
             &:hover{
                 background-color: #17445e;
-                transition: all linear 500ms;
+                transition: all linear 300ms;
                 padding: 1.3rem 2rem;
                 box-shadow: 3px 3px 3px rgba(31, 30, 30,0.5), -1px -1px 4px rgba(225,225,225,0.6);
                 &:active{
                     box-shadow:inset 3px 3px 3px rgba(31, 30, 30,0.5),inset -1px -1px 4px rgba(225,225,225,0.6);
                 }
                 svg{
-                    transition: all linear 500ms;
-                    color: white; 
+                    transition: all linear 300ms;
+                    color:#ffffff;
                 }
             }
         }
@@ -62,9 +62,6 @@
         border-radius: 10px;
         left: -120px;
         position: absolute;
-    }
-    @media (min-width:1000px) and (max-width:1800px) {
-        display: flex;
     }
 }
 .overlay-poster-mobile{
@@ -76,7 +73,14 @@
     align-items: center;
     flex-direction: column;
     bottom:0;
-    @media (min-width:1000px) and (max-width:1800px) {
+}
+
+/* Responsive */
+@media (min-width:1200px) and (max-width:1800px) {
+    .overlay-poster{
+        display: flex;
+    }
+    .overlay-poster-mobile{
         display: none;
     }
 }

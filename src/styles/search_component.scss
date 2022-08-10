@@ -1,0 +1,26 @@
+.search-component{
+    position: relative;
+    background-color: gray;
+    font-family: 'Overpass',serif;
+    &>input{
+        outline: none;
+        border: none;
+        padding: 0.1rem 0.4rem;
+        font-size: 1rem;
+        font-weight: 300;
+        width: 250px;
+    }
+}
+.display-searchs{
+    position: absolute;
+    top: 130%;
+    background-color: #ffb8035b;
+    text-shadow: none;
+    color:black;
+    padding: 0.5rem 0.3rem;
+    min-width:240px;
+    max-width: 500px;
+    max-height: 400px;
+    overflow: auto;
+   
+}

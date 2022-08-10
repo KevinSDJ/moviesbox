@@ -4,12 +4,25 @@ import {Link} from 'react-router-dom'
 import Logo from '../Logo'
 import {SearchButton} from './../buttons'
 import './../../styles/navbar.scss'
-import { memo } from 'react'
+import { memo, useEffect, useRef } from 'react'
 
 
 const Navbar = () => {
     let { pathname } = useLocation()
-    return (<nav className='nav'>
+    let navref= useRef()
+    useEffect(()=>{
+        let scroll =(e)=>{
+            if(document.body.getBoundingClientRect().top<-100){
+                navref.current.classList.add('isScroll')
+            }else{
+                navref.current.classList.remove('isScroll')
+            }
+            
+        }
+        window.addEventListener('scroll',scroll)
+        return ()=>{window.removeEventListener('scroll',scroll)}
+    },[])
+    return (<nav className='nav' ref={navref}>
         <div className='innerNav'>
             <Logo/>
             <div className='nav-section'>

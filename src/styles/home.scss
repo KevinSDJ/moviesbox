@@ -2,10 +2,13 @@
     box-sizing: border-box;
     width: 100%;
     background-color: #17445e;
+    height: auto;
 }
 .sections-container{
     width: 100%;
+    height: auto;
     background-color: transparent;
+    padding-bottom: 2rem;
     @media (min-width:1000px) and (max-width:1800px) {
         padding: 4rem 0;
     }

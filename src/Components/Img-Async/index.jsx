@@ -1,4 +1,5 @@
 
+import { useEffect } from 'react'
 import Img from 'react-cool-img'
 import loadingimage from './../../assets/Spinner-0.7s-200px.svg'
 
@@ -6,6 +7,7 @@ import loadingimage from './../../assets/Spinner-0.7s-200px.svg'
 
 
 const ImageAsync = ({ url, title, classname }) => {
+  
   return (
     <Img
       className={classname || '.'}

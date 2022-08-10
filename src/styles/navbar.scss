@@ -43,8 +43,16 @@
     .active-link-nav{
         border-bottom: 1px solid white;
     }
+    @media (min-width:280px) and (max-width:700px){
+        padding: 0;
+        .nav-link{
+            display:none !important;
+        }
+    }
     @media (min-width:700px) and (max-width:1000px){
-        background-color: rgb(14, 14, 32);
+        .nav-link{
+            display:none !important;
+        }
         .mobile-button{
             display: block;
         }
@@ -54,4 +62,8 @@
             display: none;
         }
     }
+}
+.isScroll{
+    transition: ease-in-out 1s;
+    background-color: #17445e;
 }

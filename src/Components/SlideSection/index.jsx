@@ -10,6 +10,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import './../../styles/slideSection.scss'
+import { useResize } from '../../hooks/useResize'
 
 
 
@@ -31,6 +32,7 @@ export const isFavourite=(title)=>{
   return sect.favs.data().filter(it=>it.title===title).length > 0
 }
 const SlidesSection = ({ section }) => {
+  const {screen} = useResize()
   const dispatch= useDispatch()
   const data = sect[section].data()
   useEffect(()=>{
@@ -45,7 +47,7 @@ const SlidesSection = ({ section }) => {
                 navigation={true}
                 parallax={true}
                 modules={[Navigation, Pagination]}
-                spaceBetween={30}
+                spaceBetween={screen>700 && 30 || 10}
                 className="mySwiper"
 
                 >
