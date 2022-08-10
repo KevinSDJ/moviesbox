@@ -1,16 +1,13 @@
-import { fetchAllPopMov } from './../store/slices/popularityMovieSlice'
-import { fetchAllUpcMovies } from './../store/slices/upcommingMovieSlice'
+
 
 export const sect = {
     popularity: {
       title: 'The most popular now',
-      data: () => state => state.persReducer.popularity,
-      action:()=>fetchAllPopMov()
+      data: () => state => state.persReducer.popularity
     },
     upcomming: {
       title: 'Upcoming releases',
-      data: () => state => state.persReducer.upcommingmovies,
-      action:()=>fetchAllUpcMovies()
+      data: () => state => state.persReducer.upcommingmovies
     },
     favs: {
       data: () => state => state.persReducer.Favs.movies

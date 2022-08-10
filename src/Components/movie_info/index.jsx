@@ -1,8 +1,6 @@
 import {useContext} from 'react'
 import Drawer from 'react-modern-drawer'
 import { ContextMovieDataSelect } from '../../context/movieDataSelect'
-import { useLazyChange } from '../../hooks/useDelayChange'
-import { useGetDetailsMovieQuery } from '../../services/api'
 import 'react-modern-drawer/dist/index.css'
 import './../../styles/movie_info.scss'
 

@@ -24,7 +24,7 @@ const ContextMovPlay= ({children})=>{
     
     useEffect(()=>{
         if(trailerData?.length){
-            let id= trailerData.length>1 && trailerData[2].key || trailerData[0].key
+            let id= trailerData.length>2 && trailerData[2].key || trailerData[0].key
             setSrc(`https://www.youtube.com/watch?v=${id}`)
             setMovId(false)
             setSkip(!skiptrailer)

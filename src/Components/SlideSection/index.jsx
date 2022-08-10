@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { isFavourite,sect} from './../../util'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper'
-import { useDispatch, useSelector } from 'react-redux'
-
+import { useSelector } from 'react-redux'
 import MovieCard from '../MovieCard'
 import SlideSectionSkeleton from '../Skeletons/SlideSectionSkeleton'
 import 'swiper/css'
@@ -13,14 +12,8 @@ import './../../styles/slideSection.scss'
 
 
 const SlidesSection = ({ section }) => {
-  const dispatch = useDispatch()
   const data = useSelector(sect[section].data())
   const favs= useSelector(sect['favs'].data())
-
-  useEffect(() => {
-    data.status === 'idle' && dispatch(sect[section].action())
-  }, [])
-
 
   if (data?.status === 'idle' || data.status === 'loading') return (<SlideSectionSkeleton />)
   if (data?.status === 'success') {

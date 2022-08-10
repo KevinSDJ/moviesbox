@@ -1,24 +1,19 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import OvPosterCard from './../OverlayPoster'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
 import BigSkeleton from '../Skeletons/BigSkeleton'
 import ImageAsync from '../Img-Async'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchAllTrendMovies } from '../../store/slices/trendWeekMovieSlice'
 import './../../styles/posterhom.scss'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
-
 const Poster = () => {
-  const dispatch= useDispatch()
   const data = useSelector(state=> state.persReducer.trendingweek)
   const [index, setIndex] = useState(0)
-  useEffect(()=>{
-    data.status==='idle' && dispatch(fetchAllTrendMovies())
-  },[dispatch])
+ 
   if (data?.status==='idle') return (<BigSkeleton/>)
   if (data?.status==='success') {
     return (<>

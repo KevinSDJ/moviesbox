@@ -1,13 +1,30 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import {lazy ,Suspense} from 'react'
+import {lazy ,Suspense, useEffect} from 'react'
 import { Layout } from './Pages/Layout'
 import { AnimatePresence } from 'framer-motion'
 import ContextMovPlay from './context/movieDataSelect'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAllPopMov } from './store/slices/popularityMovieSlice'
+import { fetchAllTrendMovies } from './store/slices/trendWeekMovieSlice'
+import { fetchAllUpcMovies } from './store/slices/upcommingMovieSlice'
 const Favs = lazy(()=> import('./Pages/Favs'))
 const  Home = lazy(()=>import('./Pages/Home'))
 
 
 const App = () => {
+  const dispatch= useDispatch()
+  const {trendingweek}= useSelector(state=> state.persReducer)
+  useEffect(()=>{
+    trendingweek.status === 'idle' && dispatch(fetchAllTrendMovies())
+    .unwrap()
+    .then((success)=>{
+      dispatch(fetchAllPopMov())
+      .unwrap()
+      .then((success)=>{
+        dispatch(fetchAllUpcMovies())
+      })
+    })
+  },[])
   return (
     <BrowserRouter >
         <AnimatePresence>
