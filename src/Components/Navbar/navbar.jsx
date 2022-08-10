@@ -9,20 +9,20 @@ import { memo, useEffect, useRef } from 'react'
 
 const Navbar = () => {
     let { pathname } = useLocation()
-    let navref= useRef()
+    const nav= document.querySelector('.nav')
     useEffect(()=>{
         let scroll =(e)=>{
             if(document.body.getBoundingClientRect().top<-100){
-                navref.current.classList.add('isScroll')
+                nav?.classList.add('isScroll')
             }else{
-                navref.current.classList.remove('isScroll')
+                nav?.classList.remove('isScroll')
             }
             
         }
         window.addEventListener('scroll',scroll)
         return ()=>{window.removeEventListener('scroll',scroll)}
     },[])
-    return (<nav className='nav' ref={navref}>
+    return (<nav className='nav'>
         <div className='innerNav'>
             <Logo/>
             <div className='nav-section'>

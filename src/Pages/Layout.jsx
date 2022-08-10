@@ -14,7 +14,7 @@ export const Layout = () => {
         <MovieInfo/>
         <PlayerMedia/>
      </Suspense>
-      <Outlet/>
+     <Outlet/>
       <div>
         footer
       </div>

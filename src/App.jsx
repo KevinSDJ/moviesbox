@@ -1,9 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import {lazy ,Suspense} from 'react'
 import { Layout } from './Pages/Layout'
-import Home from './Pages/Home'
-import ContextMovPlay from './context/movieDataSelect'
-import { Favs } from './Pages/Favs'
 import { AnimatePresence } from 'framer-motion'
+import ContextMovPlay from './context/movieDataSelect'
+const Favs = lazy(()=> import('./Pages/Favs'))
+const  Home = lazy(()=>import('./Pages/Home'))
+
 
 const App = () => {
   return (
@@ -11,8 +13,15 @@ const App = () => {
         <AnimatePresence>
          <Routes >
             <Route path='/' element={<ContextMovPlay><Layout/></ContextMovPlay>}>
-                <Route path='/' element={<Home/>}/>
-                <Route path='/Mylist' element={<Favs/>}/>
+                <Route path='/'
+                  element={<Suspense fallback={<div>Loading ...</div>}>
+                      <Home/>
+                  </Suspense>} />
+                <Route path='/Mylist'
+                   element={<Suspense fallback={<div>Loading ...</div>}>
+                      <Favs/>
+                   </Suspense>}
+                   />
             </Route>
             <Route path='*' element={<div>404 Not-found</div>}/>
          </Routes>

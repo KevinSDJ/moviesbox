@@ -1,12 +1,11 @@
 import { useContext } from 'react'
-import {useSwiper} from 'swiper/react'
 import {BsFillPlayBtnFill} from 'react-icons/bs'
 import { ContextMovieDataSelect } from '../../context/movieDataSelect'
 import './../../styles/overlayposter.scss'
 
 const OvPosterCard = ({id, title, poster }) => {
     const {fetchmovietrailer} = useContext(ContextMovieDataSelect)
-    const swiper= useSwiper()
+    
     return (
         <>
             <div className="overlay-poster" >
@@ -14,7 +13,7 @@ const OvPosterCard = ({id, title, poster }) => {
                 <div className="overlay-circle">
                     <p>{title}</p>
                     <button onClick={()=>{
-                        fetchmovietrailer(id,swiper)
+                        fetchmovietrailer(id)
                         }}><BsFillPlayBtnFill/></button>
                 </div>
             </div>
