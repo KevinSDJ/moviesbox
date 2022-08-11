@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper'
 import { useSelector } from 'react-redux'
 import MovieCard from '../MovieCard'
+import { useResize } from '../../hooks/useResize'
 import SlideSectionSkeleton from '../Skeletons/SlideSectionSkeleton'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -11,19 +12,19 @@ import 'swiper/css/pagination'
 import './../../styles/slideSection.scss'
 
 
+
 const SlidesSection = ({ section }) => {
+  const {screen}= useResize()
   const data = useSelector(sect[section].data())
   const favs= useSelector(sect['favs'].data())
-
   if (data?.status === 'idle' || data.status === 'loading') return (<SlideSectionSkeleton />)
   if (data?.status === 'success') {
     return (
       <Swiper
         slidesPerView={'auto'}
         navigation={true}
-        parallax={true}
         modules={[Navigation, Pagination]}
-        spaceBetween={30}
+        spaceBetween={screen >700 && 30 || 10}
         className="mySwiper"
 
       >

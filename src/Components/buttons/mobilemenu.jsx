@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { HiMenuAlt3 } from 'react-icons/hi'
 import Drawer from 'react-modern-drawer'
+import {MdOutlineClose} from 'react-icons/md'
+import './../../styles/mobilemenu.scss'
+import { Link } from 'react-router-dom'
 
 
 
@@ -11,15 +14,28 @@ export const MobileMenu =()=>{
             <HiMenuAlt3/>
         </button>
         <Drawer
-        direction='right'
+        direction='bottom'
         open={isOpen}
-        size={'80vw'}
-        onClose={setOpen}
+        size={'20vh'}
+        onClose={()=>setOpen(!isOpen)}
         className='mobile-menu-drawer'
         >
-        <button onClick={()=>setOpen(!isOpen)}>
-            close
+        <button className='mobile-menu-close' onClick={()=>setOpen(!isOpen)}>
+            <MdOutlineClose/>
         </button>
+        <ul>
+            <li>
+                <Link to='Mylist' >
+                    Mylist
+                </Link>
+            </li>
+            <hr/>
+            <li>
+                <Link to='About' >
+                    About
+                </Link>
+            </li>
+        </ul>
         </Drawer>
     </>)
 }

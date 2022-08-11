@@ -6,7 +6,7 @@ import { baseQuery } from '../../services/apiwithaxios'
 export const fetchAllTrendMovies = createAsyncThunk(
     'trendingweek/fetchAllTrendMovies',
     async () => {
-        let response = await baseQuery.get(`/trending/movie/week?${API_KEY}`)
+        let response = await baseQuery.get(`/trending/all/week?${API_KEY}`)
         return response.data
     }
 )

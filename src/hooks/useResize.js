@@ -8,6 +8,7 @@ export const useResize=()=>{
             setSize(window.innerWidth)
         }
         window.addEventListener('resize',resize)
+        resize()
         return ()=>{window.removeEventListener('resize',resize)}
     },[])
     return {screen:size}

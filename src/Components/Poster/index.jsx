@@ -31,8 +31,9 @@ const Poster = () => {
          className="mySwiperbig"
 
         >
-            <OvPosterCard title={data?.movies?.results[index].title} poster={data?.movies?.results[index].poster_path} id={data?.movies?.results[index].id} />
-            {data?.movies?.results.map((e, i) => <SwiperSlide  className={`swiper-slide-big ${i}`} key={e.title} >
+           
+            <OvPosterCard {...data.movies.results[index]} />
+            {data?.movies?.results.map((e, i) => <SwiperSlide  className={`swiper-slide-big ${i}`} key={e.id+'poster'} >
                    <ImageAsync title={e.title} classname={'image-poster'} url={`https://image.tmdb.org/t/p/original/${e.backdrop_path}`}/>
                 </SwiperSlide>)}
         </Swiper>}

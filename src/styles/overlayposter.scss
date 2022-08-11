@@ -1,8 +1,8 @@
 .overlay-poster{
     position: absolute;
     right: 100px;
-    background-color: #17445e;
-    border: 5px solid rgb(236, 236, 236);
+    background:linear-gradient(360deg,#ff5f03,#17445e 40%) ;
+    border-top: 1px solid white;
     z-index: 4;
     width:350px;
     height: 350px;
@@ -44,14 +44,14 @@
             }
             &:hover{
                 background-color: #17445e;
-                transition: all linear 300ms;
+                transition: all linear 500ms;
                 padding: 1.3rem 2rem;
                 box-shadow: 3px 3px 3px rgba(31, 30, 30,0.5), -1px -1px 4px rgba(225,225,225,0.6);
                 &:active{
                     box-shadow:inset 3px 3px 3px rgba(31, 30, 30,0.5),inset -1px -1px 4px rgba(225,225,225,0.6);
                 }
                 svg{
-                    transition: all linear 300ms;
+                    transition: all linear 500ms;
                     color:#ffffff;
                 }
             }
@@ -66,17 +66,32 @@
 }
 .overlay-poster-mobile{
     position: absolute;
-    background-color: #586f7c;
-    border: 2px solid white;
-    z-index: 4;
+    width: 100%;
+    height: 100%;
+    color:white;
+    background:linear-gradient(180deg,#ff5f0391,transparent,#17445e 80%) ;
+    z-index: 5;
     display: flex;
     align-items: center;
     flex-direction: column;
-    bottom:0;
+    justify-content: flex-end;
+    bottom:-1px;
+    text-shadow: 0px 0px 3px black;
+    &>h4{
+        max-width: 80%;
+    }
+    &>p{
+        color:rgb(196, 196, 196);
+        font-size: 0.7em;
+        max-width: 80%;
+        min-height: 4rem;
+        max-height: 8rem;
+        text-align: center;
+    }
 }
 
 /* Responsive */
-@media (min-width:1200px) and (max-width:1800px) {
+@media (min-width:1024px) and (max-width:1800px) {
     .overlay-poster{
         display: flex;
     }

@@ -5,8 +5,6 @@ import 'react-modern-drawer/dist/index.css'
 import './../../styles/movie_info.scss'
 
 
-
-
 const MovieInfo = () => {
     const {moviedata,toggleDrawerMovD} = useContext(ContextMovieDataSelect)
     return (<Drawer
