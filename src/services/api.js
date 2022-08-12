@@ -1,4 +1,5 @@
 import {createApi,fetchBaseQuery} from '@reduxjs/toolkit/query/react'
+import { REHYDRATE } from 'redux-persist';
 const key_api= import.meta.env.VITE_API_KEY
 
 

@@ -7,11 +7,13 @@ import trendingMovieSlice from './slices/trendWeekMovieSlice'
 import popularityMovieSlice from './slices/popularityMovieSlice'
 import upcommingMovieSlice from './slices/upcommingMovieSlice'
 import { MoviesApi } from './../services/api'
+import { SetTransform } from '../util/setTransform.js'
 
 const persistConfigure={
   key:'root',
   version:1.0,
-  storage
+  storage,
+  transform:[SetTransform]
 }
 const reducers= combineReducers({
   upcommingmovies:upcommingMovieSlice,
@@ -25,7 +27,7 @@ const persReducer= persistReducer(persistConfigure,reducers)
 
 const store = configureStore({
   reducer:{persReducer,[MoviesApi.reducerPath]: MoviesApi.reducer},
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(MoviesApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({serializableCheck:false}).concat(MoviesApi.middleware),
   devTools: import.meta.env.NODE_ENV !== 'production'
 })
 
