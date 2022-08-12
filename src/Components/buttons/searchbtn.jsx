@@ -5,6 +5,8 @@ import {AiFillCloseCircle} from 'react-icons/ai'
 import SearchComponent from '../SearchComponent'
 import './../../styles/search.scss'
 import { useResize } from '../../hooks/useResize'
+import { SearchsDisplay } from '../searchsdiplay'
+import { SearchMobileComponent } from '../searchmobileComponent'
 
 
 export const SearchButton=()=>{
@@ -13,8 +15,10 @@ export const SearchButton=()=>{
     return(
         <>
         <AnimatePresence>
-            {open && screen>700 && <SearchComponent closeSearch={setOpen}/>}
-            {open && screen<=700 && <div>Nop no hay componente aun</div>}
+            {open && screen>700 && <SearchComponent closeSearch={setOpen}>
+                <SearchsDisplay/>
+            </SearchComponent>}
+            {screen<=700 &&<SearchMobileComponent isOpen={open} closeSearch={setOpen}/>}
         </AnimatePresence>
         <button className='search-button' onClick={()=>setOpen(!open)}  >
             {open && <AiFillCloseCircle/> || <HiSearchCircle/>}

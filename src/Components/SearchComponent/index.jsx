@@ -1,49 +1,29 @@
-import {useRef, useState} from 'react'
+import {useContext} from 'react'
 import {motion} from 'framer-motion'
-import './../../styles/search_component.scss'
+import {SearchContext} from './../../context/search.jsx'
+import SearchContextProvider from './../../context/search.jsx'
 import { SearchsDisplay } from '../searchsdiplay'
+import {SearchInput} from './../searchinput'
+import './../../styles/search_component.scss'
 
 
 
 
-const SearchComponent=({closeSearch})=>{
-    const [search,setSearch] = useState('')
-    let inputref= useRef()
-    let timeout
-    const handleChange=()=>{
-        clearTimeout(timeout)
-        timeout = setTimeout(() => {
-            if (inputref.current.value !== '') {
-                setSearch(inputref.current.value)
-            }else{
-                setSearch(null)
-            }
-            clearTimeout(timeout)
-        }, 1000)
-    }
-    
-    return(<motion.div
+
+
+const SearchComponent=({children,closeSearch=null,icon=null})=>{
+    return(
+    <SearchContextProvider>
+    <motion.div
     initial={{ opacity: 0 }}
-    animate={{ opacity: 1 ,transition:{duration:1}}}
+    animate={{ opacity: 1 ,transition:{duration:0.5}}}
     exit={{ opacity: 0 }}
     className='search-component'
     >
-    <input 
-    type={'search'} 
-    name="search" 
-    onBlur={(e)=>{
-        if(e.target.value ===''){
-            closeSearch(false)
-        }
-    }}
-    ref={inputref}
-    maxLength={20}  
-    onChange={handleChange} 
-    placeholder='search by title' 
-    autoComplete='off'
-    required/>
-    {search&& <SearchsDisplay query={search}/>}
-    </motion.div>)
+    <SearchInput closeSearch={closeSearch} icon={icon}/>
+    {children}
+    </motion.div>
+    </SearchContextProvider>)
 }
 
 export default SearchComponent
