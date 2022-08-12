@@ -16,14 +16,20 @@ export const MobileMenu =()=>{
         <Drawer
         direction='bottom'
         open={isOpen}
-        size={'20vh'}
+        size={'fit-content'}
         onClose={()=>setOpen(!isOpen)}
         className='mobile-menu-drawer'
         >
         <button className='mobile-menu-close' onClick={()=>setOpen(!isOpen)}>
             <MdOutlineClose/>
         </button>
-        <ul>
+        <ul onClick={()=>setOpen(!isOpen)}>
+            <li>
+                <Link to='/' >
+                    Home
+                </Link>
+            </li>
+            <hr/>
             <li>
                 <Link to='Mylist' >
                     Mylist

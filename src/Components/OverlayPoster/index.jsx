@@ -1,10 +1,10 @@
 import { useContext } from 'react'
-import {BsFillPlayBtnFill} from 'react-icons/bs'
+import {BsFillPlayBtnFill,BsFillInfoCircleFill} from 'react-icons/bs'
 import { ContextMovieDataSelect } from '../../context/movieDataSelect'
 import './../../styles/overlayposter.scss'
 
 const OvPosterCard = ({id, title, poster_path ,overview, name}) => {
-    const {fetchmovietrailer} = useContext(ContextMovieDataSelect)
+    const {fetchmovietrailer,fetchMovieDetail} = useContext(ContextMovieDataSelect)
     
     return (
         <>
@@ -20,9 +20,15 @@ const OvPosterCard = ({id, title, poster_path ,overview, name}) => {
             <div className='overlay-poster-mobile'>
                 <h4>{title || name}</h4>
                 <p>{overview}</p>
-                <div>
-                    <button>watch trailer</button>
-                    <button>more info</button>
+                <div className='overlay-mobil-btn-group'>
+                    <button onClick={()=>{fetchmovietrailer(id)}}>
+                       <BsFillPlayBtnFill/>
+                       <p>watch trailer</p>
+                    </button>
+                    <button onClick={()=>{fetchMovieDetail(id)}}>
+                      <BsFillInfoCircleFill/>
+                       <p>more info</p>
+                    </button>
                 </div>
             </div>
         </>

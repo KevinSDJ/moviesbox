@@ -1,6 +1,7 @@
 import {useContext} from 'react'
 import Drawer from 'react-modern-drawer'
 import { ContextMovieDataSelect } from '../../context/movieDataSelect'
+import {MdOutlineClose} from 'react-icons/md'
 import 'react-modern-drawer/dist/index.css'
 import './../../styles/movie_info.scss'
 
@@ -15,7 +16,9 @@ const MovieInfo = () => {
                 className='movie-drawer-info'
             >
                 <div className='movie-info-inner-draw' >
-                <button onClick={()=>toggleDrawerMovD(!moviedata)}>close</button>
+                   <button className='movie-info-draw-close' onClick={()=>toggleDrawerMovD(!moviedata)}>
+                      <MdOutlineClose/>
+                   </button>
                     {moviedata?.title}
                 </div>
             </Drawer>)

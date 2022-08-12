@@ -17,7 +17,7 @@ const Favs = () => {
          <div className="favs-top-bloq"></div>
          <div className="favs-page-main">
             <BackBtn />
-            <h1>You selection</h1>
+            <h1>Your selection</h1>
             <div className="favs-page-content">
                {data.map(e => <MovieCard key={e.title + ' fav'} id={e.id} data={e} poster={e.poster_path} title={e.title} isFav={Boolean(isFavourite(data,e.title))} />)}
             </div>

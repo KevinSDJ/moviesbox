@@ -28,4 +28,23 @@
             padding: 2rem 0.5rem;
         }
     }
+    @media (min-width:280px) and (max-width:700px){
+        .favs-top-bloq{
+            min-height: 80px;
+            width: 100%;
+        }
+        .favs-page-main{
+            padding: 0 1rem;
+            h1{
+                font-size: 14px;
+            }
+            .favs-page-content {
+                overflow: auto;
+                justify-items: center;
+                max-height: 70vh;
+                gap:1rem 0.5rem ;
+                grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+            }
+        }
+    }
 }

@@ -88,6 +88,28 @@
         max-height: 8rem;
         text-align: center;
     }
+    .overlay-mobil-btn-group{
+        display: flex;
+        gap:1rem;
+        button{
+            color:rgba(255, 255, 255, 0.63);
+            border: none;
+            font-size: 0.8rem;
+            background-color: #ff5f0380;
+            display: flex;
+            align-items: center;
+            padding:0.5rem 1rem;
+            border-radius: 4px;
+            gap:8px;
+            p{
+                margin:0;
+                line-height: 0.1px;
+            }
+            svg{
+                font-size: 1.3rem;
+            }
+        }
+    }
 }
 
 /* Responsive */

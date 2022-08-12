@@ -29,7 +29,6 @@ const Poster = () => {
          centeredSlides={true}
          modules={[Autoplay]}
          className="mySwiperbig"
-
         >
            
             <OvPosterCard {...data.movies.results[index]} />
