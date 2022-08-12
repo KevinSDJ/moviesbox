@@ -90,7 +90,9 @@
     }
     .overlay-mobil-btn-group{
         display: flex;
-        gap:1rem;
+        width: 90%;
+        align-items: center;
+        justify-content: space-around;
         button{
             color:rgba(255, 255, 255, 0.63);
             border: none;
@@ -100,7 +102,7 @@
             align-items: center;
             padding:0.5rem 1rem;
             border-radius: 4px;
-            gap:8px;
+            gap:10px;
             p{
                 margin:0;
                 line-height: 0.1px;
