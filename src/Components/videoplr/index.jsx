@@ -8,20 +8,6 @@ import './../../styles/plyr_component.scss'
 
 
 
-const MyModal = ({ children, open }) => {
-  if (open) {
-    return (<motion.div
-      className='video-content'
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
-      {children}
-    </motion.div>
-    )
-  }
-  return (<></>)
-}
 
 
 const PlayerMedia = () => {
@@ -39,10 +25,12 @@ const PlayerMedia = () => {
 
   return (
     <AnimatePresence>
-      {idMov && <MyModal
-        open={Boolean(idMov)}
-      >
-        <div className='video-content-inner'>
+      {idMov && <motion.div
+      className='video-content'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}>
+       <div className='video-content-inner'>
           <div className="video-component-header">
             <button onClick={() => {setMov(!idMov) && sharingIDmovieToTrailer.setSubject('')}}>
               <MdOutlineClose />
@@ -50,9 +38,8 @@ const PlayerMedia = () => {
           </div>
           <Plyr_run id={idMov} />
         </div>
-      </MyModal>}
-    </AnimatePresence>
-  )
+    </motion.div>}
+    </AnimatePresence>)
 }
 
 

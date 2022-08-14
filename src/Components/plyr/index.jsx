@@ -1,9 +1,9 @@
 import Youtube from 'react-youtube'
 import { useGetVideoTrailerQuery } from '../../services/api'
+import './index.scss'
 
 export const Plyr_run= ({id})=>{
     const {data,error,isFetching} = useGetVideoTrailerQuery(id)
-    console.log("player render")
     if(!data?.length)return (<div>No hay trailer</div>)
     return (<Youtube
         className='video-youtube-component'
