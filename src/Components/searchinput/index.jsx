@@ -1,5 +1,4 @@
 import { useState,useEffect,useRef } from "react";
-
 import {HiSearchCircle} from 'react-icons/hi'
 import { sharingMovieSearch } from "../../services/sharingmoviesearch.js";
 

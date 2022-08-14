@@ -1,7 +1,7 @@
-import { useContext } from 'react'
+import { useState,useEffect } from 'react'
 import {FixedSizeList as List} from 'react-window'
-import { SearchContext } from '../../context/search'
 import { useGetSearchQuery } from '../../services/api'
+import { sharingMovieSearch } from '../../services/sharingmoviesearch'
 import { LitlePreview } from '../litlepreviewmov'
 
 
@@ -33,7 +33,18 @@ const ViewsSearchs=({query})=>{
 
 
 export const DisplaySearchsMobile=()=>{
-    const {search} = useContext(SearchContext)
+    const [search,setSearch] =useState('')
+    let subscription$= sharingMovieSearch.getSubject()
+
+    useEffect(()=>{
+        subscription$.subscribe((data) =>{     
+            if(data){
+                setSearch(data)
+            }else{
+                setSearch('')
+            }
+        })
+    },[])
 
     if(!search)return (<></>)
     return(<ViewsSearchs query={search}/>)

@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import {lazy ,Suspense, useEffect} from 'react'
 import { Layout } from './Pages/Layout'
 import { AnimatePresence } from 'framer-motion'
-
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllPopMov } from './store/slices/popularityMovieSlice'
 import { fetchAllTrendMovies } from './store/slices/trendWeekMovieSlice'
@@ -28,20 +27,17 @@ const App = () => {
   return (
     <BrowserRouter >
         <AnimatePresence>
+        <Suspense fallback={<div>Loading ...</div>}>
          <Routes >
             <Route path='/' element={<Layout/>}>
                 <Route path='/'
-                  element={<Suspense fallback={<div>Loading ...</div>}>
-                      <Home/>
-                  </Suspense>} />
+                  element={<Home/>} />
                 <Route path='/Mylist'
-                   element={<Suspense fallback={<div>Loading ...</div>}>
-                      <Favs/>
-                   </Suspense>}
-                   />
+                   element={<Favs/>} />
             </Route>
             <Route path='*' element={<div>404 Not-found</div>}/>
          </Routes>
+         </Suspense>
          </AnimatePresence>
     </BrowserRouter>
   )

@@ -1,8 +1,9 @@
 import Drawer from 'react-modern-drawer'
 import {MdOutlineClose} from 'react-icons/md'
-import './../../styles/search_mobile_component.scss'
 import SearchComponent from '../SearchComponent'
 import { DisplaySearchsMobile } from '../displaysearchsmobile'
+import './../../styles/search_mobile_component.scss'
+
 
 
 export const SearchMobileComponent=({isOpen,closeSearch})=>{

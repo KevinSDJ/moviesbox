@@ -1,11 +1,9 @@
-import { useContext } from 'react'
 import {BsFillPlayBtnFill,BsFillInfoCircleFill} from 'react-icons/bs'
-import { ContextMovieDataSelect } from '../../context/movieDataSelect'
+import { sharingIDmovieToInfo } from '../../services/sharingIDmovieToInfo.service'
+import { sharingIDmovieToTrailer } from '../../services/sharingIDmovieTotrailer.service'
 import './../../styles/overlayposter.scss'
 
 const OvPosterCard = ({id, title, poster_path ,overview, name}) => {
-    const {fetchmovietrailer,fetchMovieDetail} = useContext(ContextMovieDataSelect)
-    
     return (
         <>
             <div className="overlay-poster" >
@@ -13,7 +11,7 @@ const OvPosterCard = ({id, title, poster_path ,overview, name}) => {
                 <div className="overlay-circle">
                     <p>{title}</p>
                     <button onClick={()=>{
-                        fetchmovietrailer(id)
+                        sharingIDmovieToTrailer.setSubject(id)
                         }}><BsFillPlayBtnFill/></button>
                 </div>
             </div>
@@ -21,11 +19,11 @@ const OvPosterCard = ({id, title, poster_path ,overview, name}) => {
                 <h4>{title || name}</h4>
                 <p>{overview}</p>
                 <div className='overlay-mobil-btn-group'>
-                    <button onClick={()=>{fetchmovietrailer(id)}}>
+                    <button onClick={()=>{sharingIDmovieToTrailer.setSubject(id)}}>
                        <BsFillPlayBtnFill/>
                        <p>watch trailer</p>
                     </button>
-                    <button onClick={()=>{fetchMovieDetail(id)}}>
+                    <button onClick={()=>{sharingIDmovieToInfo.setSubject(id)}}>
                       <BsFillInfoCircleFill/>
                        <p>more info</p>
                     </button>

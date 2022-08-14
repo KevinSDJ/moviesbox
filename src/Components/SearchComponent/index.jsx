@@ -9,7 +9,6 @@ import './../../styles/search_component.scss'
 
 const SearchComponent=({children,closeSearch=null,icon=null})=>{
     return(
-    <SearchContextProvider>
     <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 ,transition:{duration:0.5}}}
@@ -18,8 +17,7 @@ const SearchComponent=({children,closeSearch=null,icon=null})=>{
     >
     <SearchInput closeSearch={closeSearch} icon={icon}/>
     {children}
-    </motion.div>
-    </SearchContextProvider>)
+    </motion.div>)
 }
 
 export default SearchComponent
