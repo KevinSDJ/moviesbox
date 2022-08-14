@@ -1,4 +1,5 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
+import Thunk from 'redux-thunk'
 import storage from 'redux-persist/lib/storage'
 import { persistReducer } from 'redux-persist'
 import authSlice from './slices/authSlice.js'
@@ -27,7 +28,7 @@ const persReducer= persistReducer(persistConfigure,reducers)
 
 const store = configureStore({
   reducer:{persReducer,[MoviesApi.reducerPath]: MoviesApi.reducer},
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({serializableCheck:false}).concat(MoviesApi.middleware),
+  middleware: [Thunk].concat(MoviesApi.middleware),
   devTools: import.meta.env.NODE_ENV !== 'production'
 })
 

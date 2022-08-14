@@ -1,20 +1,22 @@
-import { useContext } from 'react'
-import {AnimatePresence,motion} from 'framer-motion'
-import { ContextMovieDataSelect } from '../../context/movieDataSelect'
+import { useState, useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+import { MdOutlineClose } from 'react-icons/md'
 import { Plyr_run } from '../plyr'
+import { sharingIDmovieToTrailer } from '../../services/sharingIDmovieTotrailer.service'
 import 'react-modern-drawer/dist/index.css'
 import './../../styles/plyr_component.scss'
 
 
-const MyModal=({children,open})=>{
-  if(open){
-    return (<motion.div 
-    className='video-content'
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
+
+const MyModal = ({ children, open }) => {
+  if (open) {
+    return (<motion.div
+      className='video-content'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
-    {children}
+      {children}
     </motion.div>
     )
   }
@@ -23,16 +25,31 @@ const MyModal=({children,open})=>{
 
 
 const PlayerMedia = () => {
-  let { src, toggleDrawer } = useContext(ContextMovieDataSelect)
+  const [idMov, setMov] = useState(null)
+  let subscribe = sharingIDmovieToTrailer.getSubject()
+  useEffect(() => {
+    subscribe.subscribe((data) => {
+      if (data) {
+        setMov(data)
+      } else {
+        setMov('')
+      }
+    })
+  }, [])
+
   return (
     <AnimatePresence>
-      {src && <MyModal
-      open={Boolean(src)}
+      {idMov && <MyModal
+        open={Boolean(idMov)}
       >
-          <div className='video-content-inner'>
-            <button onClick={() => toggleDrawer(!src)}>x</button>
-            {src && <Plyr_run url={src} />}
+        <div className='video-content-inner'>
+          <div className="video-component-header">
+            <button onClick={() => {setMov(!idMov) && sharingIDmovieToTrailer.setSubject('')}}>
+              <MdOutlineClose />
+            </button>
           </div>
+          <Plyr_run id={idMov} />
+        </div>
       </MyModal>}
     </AnimatePresence>
   )

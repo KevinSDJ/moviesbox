@@ -20,9 +20,11 @@ export const MobileMenu =()=>{
         onClose={()=>setOpen(!isOpen)}
         className='mobile-menu-drawer'
         >
+        <div className='mobile-menu-header'>
         <button className='mobile-menu-close' onClick={()=>setOpen(!isOpen)}>
             <MdOutlineClose/>
         </button>
+        </div>
         <ul onClick={()=>setOpen(!isOpen)}>
             <li>
                 <Link to='/' >

@@ -1,12 +1,11 @@
-import { useContext } from 'react'
 import {BsFillInfoCircleFill} from 'react-icons/bs'
-import { ContextMovieDataSelect } from '../../context/movieDataSelect'
+import { sharingIDmovieToInfo } from '../../services/sharingIDmovieToInfo.service'
 import './../../styles/info_btn.scss'
 
 export const InfMovBtn=({id})=>{
-    const {fetchMovieDetail}= useContext(ContextMovieDataSelect)
+    
     return (
-    <button className="info-btn" onClick={()=>fetchMovieDetail(id)}>
+    <button className="info-btn" onClick={()=>sharingIDmovieToInfo.setSubject(id)}>
         <BsFillInfoCircleFill/> 
         </button>)
 }

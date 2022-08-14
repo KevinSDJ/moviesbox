@@ -1,25 +1,29 @@
-import { useContext,useRef } from "react";
-import {SearchContext} from './../../context/search.jsx'
+import { useState,useEffect,useRef } from "react";
+
 import {HiSearchCircle} from 'react-icons/hi'
+import { sharingMovieSearch } from "../../services/sharingmoviesearch.js";
 
 
 
 
 export const SearchInput = ({closeSearch=null,icon=null}) => {
-    const {changeContSearchSt} = useContext(SearchContext)
+    const [inputvalue,setInputValue]= useState('')
     let inputref= useRef()
     let timeout
     const handleChange=()=>{
         clearTimeout(timeout)
         timeout = setTimeout(() => {
-            if (inputref.current.value !== '') {
-                changeContSearchSt(inputref.current.value)
+            if (inputref.current.value === '') {
+                setInputValue('')
+                sharingMovieSearch.setSubject('')
             }else{
-                changeContSearchSt(null)
+                setInputValue(inputref.current.value)
             }
-            clearTimeout(timeout)
         }, 1000)
     }
+    useEffect(()=>{
+        inputvalue && sharingMovieSearch.setSubject(inputvalue)
+    },[inputvalue])
     return (
         <div className="search-input-section">
         <input

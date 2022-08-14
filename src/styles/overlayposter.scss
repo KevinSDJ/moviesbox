@@ -64,6 +64,7 @@
         position: absolute;
     }
 }
+/* mobile */
 .overlay-poster-mobile{
     position: absolute;
     width: 100%;
@@ -112,6 +113,36 @@
                 font-size: 1.3rem;
             }
         }
+    }
+    @media (min-width:700px) and (max-width:1200px){
+        &>h4{
+            max-width: 80%;
+            font-size: 2.5em;
+        }
+        &>p{
+            color:rgb(196, 196, 196);
+            font-size: 1em;
+            max-width: 80%;
+            min-height: 4rem;
+            max-height: 8rem;
+            text-align: center;
+        }
+        .overlay-mobil-btn-group{
+            width: 50%;
+            button{
+                font-size: 1rem ;
+                padding:0.5rem 1rem;
+                p{
+                    margin:0;
+                    padding-left: 0.5rem !important;
+                    font-weight: 700;
+                }
+                svg{
+                    font-size: 1.8rem;
+                }
+            }
+        }
+
     }
 }
 

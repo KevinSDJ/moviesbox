@@ -3,11 +3,12 @@ import { useSelector } from "react-redux"
 import { BackBtn } from "../Components/buttons"
 import MovieCard from "../Components/MovieCard"
 import { isFavourite } from "../util"
+import ImageMeme from './../assets/pngegg.png'
 import './../styles/favs_page.scss'
 
 const Favs = () => {
    const data = useSelector(state => state.persReducer.Favs.movies)
-   if (!data?.length) return (<div>Mm? not Favourites added? </div>)
+   
    return (
       <motion.div
          initial={{ opacity: 0 }}
@@ -18,9 +19,9 @@ const Favs = () => {
          <div className="favs-page-main">
             <BackBtn />
             <h1>Your selection</h1>
-            <div className="favs-page-content">
+            {!data?.length && <div> <p style={{textAlign:'center',color:'white'}}>¿?</p><img  width={300} src={ImageMeme}/></div> ||<div className="favs-page-content">
                {data.map(e => <MovieCard key={e.title + ' fav'} id={e.id} data={e} poster={e.poster_path} title={e.title} isFav={Boolean(isFavourite(data,e.title))} />)}
-            </div>
+            </div>}
          </div>
       </motion.div>)
 }

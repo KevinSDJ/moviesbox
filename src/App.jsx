@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import {lazy ,Suspense, useEffect} from 'react'
 import { Layout } from './Pages/Layout'
 import { AnimatePresence } from 'framer-motion'
-import ContextMovPlay from './context/movieDataSelect'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllPopMov } from './store/slices/popularityMovieSlice'
 import { fetchAllTrendMovies } from './store/slices/trendWeekMovieSlice'
@@ -29,7 +29,7 @@ const App = () => {
     <BrowserRouter >
         <AnimatePresence>
          <Routes >
-            <Route path='/' element={<ContextMovPlay><Layout/></ContextMovPlay>}>
+            <Route path='/' element={<Layout/>}>
                 <Route path='/'
                   element={<Suspense fallback={<div>Loading ...</div>}>
                       <Home/>

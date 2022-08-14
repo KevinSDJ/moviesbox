@@ -1,14 +1,18 @@
-import Player from 'react-player'
+import Youtube from 'react-youtube'
+import { useGetVideoTrailerQuery } from '../../services/api'
 
-export const Plyr_run= ({url})=>{
-    if(!url)return (<div>No hay trailer</div>)
-    return (<Player 
-    style={{width:'100%',height:'100%'}} 
-    url={url}
-    pip={true}
-    stopOnUnmount={true}
-    controls={true}
-    config={{youtube:{playerVars:{enablejsapi:true}}}}
-    fallback={<div style={{width:'600px',height:'400px',backgroundColor:'white'}}>Loading ...</div>}
-    onError={(e)=> console.log(e)} />)
+export const Plyr_run= ({id})=>{
+    const {data,error,isFetching} = useGetVideoTrailerQuery(id)
+    console.log("player render")
+    if(!data?.length)return (<div>No hay trailer</div>)
+    return (<Youtube
+        className='video-youtube-component'
+        videoId={data[0].key}
+        iframeClassName='video-youtube-iframe'
+        onError={(e)=>console.lot(e)}
+        loading={'lazy'}
+        opts={{
+            playerVars:{autoplay:0,enablejsapi:0,showinfo:0,origin:window.location.host},
+            }}
+    />)
 }

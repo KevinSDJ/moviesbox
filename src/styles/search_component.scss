@@ -34,7 +34,7 @@
 
             .icon-search-input {
                 position: absolute;
-                right: 1.5rem;
+                right: calc(5vw);
                 top: 0.2rem;
                 color: rgb(95, 93, 93);
                 font-size: 2rem;
@@ -52,15 +52,23 @@
 
 .display-searchs {
     position: absolute;
-    top: 130%;
     background-color: #ffb8035b;
     text-shadow: none;
     color: black;
     padding: 0.5rem 0.3rem;
-    min-width: 240px;
-    max-width: 500px;
-    max-height: 400px;
     overflow: auto;
+    @media (min-width:700px) and (max-width:1024px){
+        .display-searchs-inner{
+            width: 350px !important;
+        }
+        top: 70%!important;
+    }
+    @media (min-width:1024px) and (max-width:1200px){
+        top: 80%!important;
+    }
+    @media (min-width:1200px) and (max-width:1800px){
+        top: 3.5rem !important;
+    }
 
 }
 .display-searchs-mobile-inner{
@@ -68,4 +76,6 @@
     margin-top: 5%;
     width: 90% !important;
     height: 80vh !important;
+    max-width: none  !important;
+    max-height: none !important;
 }

@@ -1,8 +1,4 @@
-import {useContext} from 'react'
 import {motion} from 'framer-motion'
-import {SearchContext} from './../../context/search.jsx'
-import SearchContextProvider from './../../context/search.jsx'
-import { SearchsDisplay } from '../searchsdiplay'
 import {SearchInput} from './../searchinput'
 import './../../styles/search_component.scss'
 
