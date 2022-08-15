@@ -177,7 +177,7 @@
                     align-items: flex-start !important;
                     flex-direction: column !important;
                     padding: 0;
-                    gap: 0.5rem !important;
+                    gap: calc(10px) !important;
                     flex-wrap: nowrap;
                     list-style: none;
                     li {
