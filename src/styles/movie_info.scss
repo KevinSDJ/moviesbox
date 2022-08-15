@@ -167,7 +167,6 @@
 
             .movie-data {
                 padding: 1rem !important;
-
                 .title {
                     font-size: 1.5rem;
                     width: fit-content !important;
@@ -176,23 +175,19 @@
 
                 .clasif-and-duration {
                     display: flex;
-                    align-items: center !important;
+                    align-items: flex-start !important;
+                    flex-direction: column !important;
                     padding: 0;
-                    gap: 1rem !important;
-                    flex-wrap: wrap;
+                    gap: 0.5rem !important;
+                    flex-wrap: nowrap;
                     list-style: none;
-
                     li {
-                        font-size: 0.8em;
+                        font-size: 0.7em !important;
                     }
-
                     .certification {
                         color: #ff5f03;
-                        ;
                         border: 1px solid #ff5f03;
-                        ;
-                        padding: 1.5rem 0.5rem;
-                        width: 3rem;
+                        width: 2rem !important;
                         text-align: center;
                     }
                 }
@@ -226,7 +221,7 @@
             &>img {
 
                 max-height: 400px !important;
-                margin: 2rem 1rem 1rem 1rem;
+                margin: 2rem 1rem 0rem 1rem;
                 padding: 1rem 0;
             }
 
