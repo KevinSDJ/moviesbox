@@ -1,11 +1,11 @@
 .overlay-poster{
     position: absolute;
     right: 100px;
-    background:linear-gradient(360deg,#ff5f03,#17445e 40%) ;
-    border-top: 1px solid white;
+    background:#17445e ;
+    border: 4px solid white;
     z-index: 4;
-    width:350px;
-    height: 350px;
+    width:320px;
+    height: 320px;
     border-radius: 100%;
     display: none;
     align-items: center;
@@ -18,12 +18,16 @@
         flex-direction: column;
         max-width: 70%;
         margin: 0 auto;
-        p{
+        span{
+            color: rgb(156, 155, 155);
+        }
+        h4{
             color:rgb(226, 225, 225);
             font-size: 24px;
             font-weight: 700;
             text-shadow: 3px 3px 10px black;
         }
+       
         button{
             position: relative;
             box-sizing: content-box;
@@ -58,9 +62,10 @@
         }
     }
     &>.overlay-poster-image{
+        z-index: 4;
         width: 180px;
         border-radius: 10px;
-        left: -120px;
+        left: -110px;
         position: absolute;
     }
 }

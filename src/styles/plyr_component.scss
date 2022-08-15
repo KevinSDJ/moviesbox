@@ -8,6 +8,7 @@
     align-items: center;
     background-color: rgba(5, 5, 5, 0.664);
     .video-content-inner{
+        position: relative;
         box-sizing: content-box;
         display: flex;
         flex-direction: column;
@@ -17,19 +18,22 @@
         height: max-content;
         background-color: #17445e;
         border-radius: 4px;
-        .video-component-header{
+        z-index: 4;
+        &>button{
+            position: absolute;
+            line-height: 0.5px;
+            padding: 0.2rem;
+            right: 5px;
+            top: 5px;
+            font-size: 1.5rem;
             background-color: #17445e;
-            padding: 0.3rem;
-            border-top-right-radius: 4px;
-            border-top-left-radius: 4px;
-            &>button{
-                line-height: 0.5px;
-                padding: 0.2rem;
-                background-color: #25688f;
-                border: none;
-                border-radius: 4px;
-                font-weight: 800;
-                color: rgba(255, 255, 255, 0.699);
+            border: none;
+            border-radius: 4px;
+            font-weight: 800;
+            z-index: 100 !important;
+            color: rgba(255, 255, 255, 0.699);
+            &:hover{
+                background-color:  #22648a;
             }
         }
     }

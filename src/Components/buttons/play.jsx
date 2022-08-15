@@ -3,8 +3,8 @@ import { sharingIDmovieToTrailer } from '../../services/sharingIDmovieTotrailer.
 import './../../styles/playbtn.scss'
 
 
-export const PlayBtn=({idMovie,text=null})=>{
-    return (<button  className='play-btn' onClick={()=>sharingIDmovieToTrailer.setSubject(idMovie)}>
+export const PlayBtn=({idMovie,text=null,classname=null})=>{
+    return (<button  className={classname || 'play-btn'} onClick={()=>sharingIDmovieToTrailer.setSubject(idMovie)}>
       <BsFillPlayBtnFill  fontSize={30}/> {text&& <p>{text}</p>}
     </button>)
 }

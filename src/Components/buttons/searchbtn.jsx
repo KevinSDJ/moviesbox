@@ -5,7 +5,7 @@ import {AiFillCloseCircle} from 'react-icons/ai'
 import SearchComponent from '../SearchComponent'
 import './../../styles/search.scss'
 import { useResize } from '../../hooks/useResize'
-import { SearchsDisplay } from '../searchsdiplay'
+import { SearchsDisplay } from '../searchsdisplay'
 import { SearchMobileComponent } from '../searchmobileComponent'
 
 

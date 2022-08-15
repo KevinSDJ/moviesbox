@@ -41,15 +41,16 @@
         padding: 0.5rem;
     }
     .mobile-menu-close{     
-        box-shadow: 2px 2px 2px #0a1c27,-1px -1px 2px #ffffff4d ;
-        background-color: transparent;
         text-shadow: 0px 5px 3px black;
         line-height: 0.5;
         padding: 0.4rem;
         font-size: 1.2em;
         margin-left: 1rem;
-        border-radius: 4px;
-        color:#e06721;
+        background-color: #25688f;
         border: none;
+        border-radius: 4px;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.699);
+        
     }
 }

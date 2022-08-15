@@ -7,6 +7,7 @@
     width: 12.24px;
     height: 24.48px;
     border-radius: 6.12px / 12.24px;
+    animation: ldio-9ymj6lzaec8 linear 1s infinite;
     transform-origin: 6.12px 53.04px;
   }.ldio-ovzbady90h div:nth-child(1) {
     transform: rotate(0deg);
@@ -64,7 +65,7 @@
     align-items:center;
     justify-content:center;
     overflow: hidden;
-    background: hsla(210, 8%, 95%, 0);
+    background: #17445e;
     @media (min-width:1000px) and (max-width:1800px) {
         height: 100vh !important;
     }
@@ -82,4 +83,8 @@
     }
   }
   .ldio-ovzbady90h div { box-sizing: content-box; }
+  @keyframes ldio-9ymj6lzaec8 {
+    0% { opacity: 1 }
+    100% { opacity: 0 }
+  }
   

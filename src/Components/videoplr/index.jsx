@@ -31,11 +31,11 @@ const PlayerMedia = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}>
        <div className='video-content-inner'>
-          <div className="video-component-header">
+          
             <button onClick={() => {setMov(!idMov) && sharingIDmovieToTrailer.setSubject('')}}>
               <MdOutlineClose />
             </button>
-          </div>
+          
           <Plyr_run id={idMov} />
         </div>
     </motion.div>}

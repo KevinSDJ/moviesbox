@@ -1,17 +1,15 @@
 
-import { useEffect } from 'react'
 import Img from 'react-cool-img'
 import loadingimage from './../../assets/Spinner-0.7s-200px.svg'
 
 
 
 
-const ImageAsync = ({ url, title, classname }) => {
-  
+const ImageAsync = ({ url, title, classname=null,placeholder=null }) => {
   return (
     <Img
       className={classname || '.'}
-      placeholder={loadingimage}
+      placeholder={placeholder || loadingimage}
       src={url}
       cache
       alt={title + '-image'}

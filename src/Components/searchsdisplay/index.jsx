@@ -26,6 +26,7 @@ const ViewDataList=({query})=>{
     >
     {({data,index,style})=>{
         return (<li style={style}>
+        {console.log(currentData)}
         <LitlePreview id={data[index].id} poster={data[index].poster_path} title={data[index].title}/>
         </li>)
     }}

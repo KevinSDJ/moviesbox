@@ -61,12 +61,16 @@
 @media (min-width:1024px) and (max-width:1800px) {
   .swiper-slide-big{
     display: inline-flex;
+    padding: 0;
     .image-poster {
+      border: none;
       height:100% !important;
     }
   }
   .mySwiperbig {
-    height: 100vh !important;
+    height: auto;
+    padding: 0;
+    border:none;
     &::before {
       content: '';
       background-color: #17445e;
@@ -81,7 +85,7 @@
 
     &::after {
       content: '';
-      background: #17445e;
+      background:#17445e;
       position: absolute;
       width: 100%;
       left: 0;
@@ -93,10 +97,12 @@
   .swiper-slide-big{
     height: 100vh !important;
     background: linear-gradient(#ff5f039f, transparent, #17445e 90%);
+    border: none !important;
     .image-poster {
       position: absolute;
       z-index: -10;
       height: 100vh;
+      object-fit: cover;
     }
   }
 }

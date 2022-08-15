@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchAllPopMov } from './store/slices/popularityMovieSlice'
 import { fetchAllTrendMovies } from './store/slices/trendWeekMovieSlice'
 import { fetchAllUpcMovies } from './store/slices/upcommingMovieSlice'
+import BigSkeleton from './Components/Skeletons/BigSkeleton'
 const Favs = lazy(()=> import('./Pages/Favs'))
 const  Home = lazy(()=>import('./Pages/Home'))
 
@@ -24,10 +25,11 @@ const App = () => {
       })
     })
   },[])
+  
   return (
     <BrowserRouter >
         <AnimatePresence>
-        <Suspense fallback={<div>Loading ...</div>}>
+        <Suspense fallback={<BigSkeleton/>}>
          <Routes >
             <Route path='/' element={<Layout/>}>
                 <Route path='/'

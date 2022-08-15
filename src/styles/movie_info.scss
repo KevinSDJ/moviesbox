@@ -1,33 +1,468 @@
-.movie-drawer-info{
+.movie-drawer-info {
     width: 100%;
     height: calc(100vh);
-    display:inline-flex;
+    display: inline-flex;
     align-items: center;
     background-color: rgba(5, 5, 5, 0.493) !important;
-    .movie-info-inner-draw{
+
+    .movie-info-inner-draw {
         border-radius: 4px;
-        position:relative;
-        min-width: 400px;
-        min-height: 600px;
-        margin:0 auto;
-        .movie-info-draw-close{
-            padding: 0.5rem;
-            line-height: 0.5px;
+        position: relative;
+        margin: 0 auto;
+        padding: 0.5rem;
+
+        .movie-info-draw-close {
             position: absolute;
-            left: 0;
-            top:0;
-            background-color: transparent;
-            backdrop-filter: blur(5px);
+            z-index: 8;
+            padding: 0.2rem;
+            font-size: 1.5rem;
+            line-height: 0.5px;
+            right: 20px;
+            top: 20px;
+            background-color: #17445e;
+            color: rgba(255, 255, 255, 0.685);
+            font-weight: 800 !important;
             border: none;
+            border-radius: 4px;
+
+            &:hover {
+                background-color: #22648a;
+            }
         }
     }
-    @media (min-width:280px) and (max-width:700px){
-        .movie-info-inner-draw{
-            min-width: 95%;
-            min-height: 90%;
-            margin:0 auto;
-            background-color: #17445e;
+
+    .movie-info-content {
+        width: 100%;
+        position: relative;
+        height: 100%;
+        border-radius: 4px;
+        overflow: hidden;
+
+        &>.movie-info-image-background {
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .movie-info-content-overlay {
+            box-sizing: content-box;
+            display: flex;
+            position: absolute;
+            z-index: 4;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            background-color: #17445ea1;
+            backdrop-filter: blur(5px);
+            top: 0;
+            align-items: flex-start;
+            color: white;
+
+            &>img {
+                max-height: 300px;
+                flex: 0;
+                margin: 2.5rem 0.5rem 0.5rem 0.5rem;
+                border-radius: 4px;
+            }
+
+            /* movie info section */
+            .movie-data {
+                padding: 0 1rem;
+
+                .title {
+                    font-size: 1.5rem;
+                    margin-bottom: 1px;
+                }
+
+                .clasif-and-duration {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    padding: 0;
+                    gap: 1.5rem;
+
+                    .certification {
+                        color: #ff5f03;
+                        ;
+                        border: 1px solid #ff5f03;
+                        ;
+                        padding: 1.5rem 0.5rem;
+                        width: 3rem;
+                        text-align: center;
+                    }
+                }
+
+                /* stars point */
+                .puntuation {
+                    background-color: rgba(255, 255, 255, 0.062);
+                    display: flex;
+                    max-width: fit-content;
+                    padding: 0.5rem 0;
+
+                    &>button {
+                        background-color: transparent;
+                        line-height: 0.5px;
+                        border: none;
+                    }
+                }
+
+                .tagline {
+                    font-style: italic;
+                    font-weight: 100 !important;
+                    opacity: 0.7;
+                }
+
+                .Overview-title {
+                    font-size: 1.2rem;
+                    margin: 0.2rem auto;
+                    letter-spacing: 2px;
+                }
+
+                .Overview {
+                    font-size: 1em;
+                    opacity: 0.8;
+                }
+            }
 
         }
-    }   
+    }
+}
+
+
+
+
+
+/* Medias querys  */
+
+@media (min-width:280px) and (max-width:700px) {
+    .movie-info-inner-draw {
+        width: 100vw;
+        height: 100vh;
+        padding: 0 !important;
+    }
+
+    .movie-info-content {
+        &>.movie-info-image-background {
+            background-position: center !important;
+            max-width: 100vw !important;
+        }
+
+        .movie-info-content-overlay {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            max-height: 100vh;
+            overflow-y: auto;
+
+            &>img {
+                max-height: 150px !important;
+                margin: 0 auto !important;
+                padding: 1rem;
+            }
+
+            .movie-data {
+                padding: 1rem !important;
+
+                .title {
+                    font-size: 1.5rem;
+                    width: fit-content !important;
+                    margin: 0 auto !important;
+                }
+
+                .clasif-and-duration {
+                    display: flex;
+                    align-items: center !important;
+                    padding: 0;
+                    gap: 1rem !important;
+                    flex-wrap: wrap;
+                    list-style: none;
+
+                    li {
+                        font-size: 0.8em;
+                    }
+
+                    .certification {
+                        color: #ff5f03;
+                        ;
+                        border: 1px solid #ff5f03;
+                        ;
+                        padding: 1.5rem 0.5rem;
+                        width: 3rem;
+                        text-align: center;
+                    }
+                }
+
+                /*seccion de reviews*/
+            }
+        }
+    }
+}
+
+@media (min-width:700px) and (max-width:800px) {
+    .movie-info-inner-draw {
+        width: 100vw;
+        height: 100vh;
+        padding: 0 !important;
+    }
+
+    .movie-info-content {
+        &>.movie-info-image-background {
+            background-position: center !important;
+            max-width: 100vw !important;
+        }
+
+        .movie-info-content-overlay {
+            box-sizing: border-box;
+            display: flex;
+            position: absolute;
+            max-height: 100vh;
+            overflow-y: auto;
+
+            &>img {
+
+                max-height: 400px !important;
+                margin: 2rem 1rem 1rem 1rem;
+                padding: 1rem 0;
+            }
+
+            .movie-data {
+                padding: 2rem 0.5rem !important;
+
+                .title {
+                    font-size: 2rem !important;
+                    width: fit-content !important;
+                }
+
+                .clasif-and-duration {
+                    display: flex;
+                    align-items: center !important;
+                    padding: 0;
+                    gap: 1.5rem !important;
+                    flex-wrap: wrap;
+
+                    .certification {
+                        color: #ff5f03;
+                        ;
+                        border: 1px solid #ff5f03;
+                        ;
+                        padding: 1.5rem 0.5rem;
+                        width: 2rem;
+                        text-align: center;
+                    }
+                }
+
+                /*seccion de reviews*/
+            }
+        }
+    }
+}
+
+@media (min-width:800px) and (max-width:1024px) {
+    .movie-info-inner-draw {
+        width: 100vw;
+        height: 100vh;
+        padding: 0 !important;
+    }
+
+    .movie-info-content {
+        &>.movie-info-image-background {
+            background-position: center !important;
+            max-width: 100vw !important;
+        }
+
+        .movie-info-content-overlay {
+            box-sizing: border-box;
+            display: flex;
+            position: absolute;
+            max-height: 100vh;
+            max-width: 100vw !important;
+            overflow-y: auto;
+
+            &>img {
+                max-height: 600px !important;
+                max-width: 400px !important;
+                margin: 5rem 1rem 1rem 1rem !important;
+                padding: 1rem 0;
+            }
+
+            .movie-data {
+                padding: 2rem 1rem !important;
+
+                .title {
+                    font-size: 2.5rem !important;
+                    width: fit-content !important;
+                }
+
+                .clasif-and-duration {
+                    display: flex;
+                    align-items: center !important;
+                    padding: 0;
+                    font-size: 2rem;
+                    gap: 2rem !important;
+                    flex-wrap: wrap;
+
+                    li {
+                        font-size: 1.2rem;
+                    }
+
+                    .certification {
+                        color: #ff5f03;
+                        ;
+                        border: 1px solid #ff5f03;
+                        ;
+                        padding: 1.5rem 0.5rem;
+                        width: 2rem;
+                        text-align: center;
+                    }
+                }
+
+                .tagline {
+                    font-size: 1.5rem !important;
+                }
+
+                .Overview-title {
+                    font-size: 2rem !important;
+                }
+
+                .Overview {
+                    font-size: 1.5em !important;
+                }
+
+                /*seccion de reviews*/
+            }
+        }
+    }
+}
+
+@media (min-width:1024px) and (max-width:1900px) {
+    .movie-info-inner-draw {
+        border-radius: 4px;
+        position: relative;
+        margin: 0 auto;
+        padding: 0.5rem;
+
+        .movie-info-draw-close {
+            position: absolute;
+            z-index: 8;
+            padding: 0.2rem;
+            font-size: 1.5rem;
+            line-height: 0.5px;
+            right: 20px;
+            top: 20px;
+            background-color: #17445e;
+            color: rgba(255, 255, 255, 0.685);
+            font-weight: 800 !important;
+            border: none;
+            border-radius: 4px;
+
+            &:hover {
+                background-color: #22648a;
+            }
+        }
+    }
+
+    .movie-info-content {
+        width: 60vw !important;
+        position: relative;
+        height: 90vh !important;
+        border-radius: 4px;
+        overflow: hidden;
+
+        &>.movie-info-image-background {
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .movie-info-content-overlay {
+            box-sizing: content-box;
+            display: flex;
+            position: absolute;
+            z-index: 4;
+            width: 100%;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            background-color: #17445ea1;
+            backdrop-filter: blur(5px);
+            top: 0;
+            align-items: flex-start;
+            color: white;
+
+            &>img {
+                max-height: 300px;
+                flex: 0;
+                margin: 2.5rem 0.5rem 0.5rem 0.5rem;
+                border-radius: 4px;
+            }
+
+            /* movie info section */
+            .movie-data {
+                padding: 0 1rem;
+
+                .title {
+                    font-size: 1.5rem;
+                    margin-bottom: 1px;
+                }
+
+                .clasif-and-duration {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    padding: 0;
+                    gap: 1.5rem;
+
+                    .certification {
+                        color: #ff5f03;
+                        ;
+                        border: 1px solid #ff5f03;
+                        ;
+                        padding: 1.5rem 0.5rem;
+                        width: 3rem;
+                        text-align: center;
+                    }
+                }
+
+                /* stars point */
+                .puntuation {
+                    background-color: rgba(255, 255, 255, 0.062);
+                    display: flex;
+                    max-width: fit-content;
+                    padding: 0.5rem 0;
+
+                    &>button {
+                        background-color: transparent;
+                        line-height: 0.5px;
+                        border: none;
+                    }
+                }
+
+                .tagline {
+                    font-style: italic;
+                    font-weight: 100 !important;
+                    opacity: 0.7;
+                }
+
+                .Overview-title {
+                    font-size: 1.2rem;
+                    margin: 0.2rem auto;
+                    letter-spacing: 2px;
+                }
+
+                .Overview {
+                    font-size: 1em;
+                    opacity: 0.8;
+                }
+            }
+
+        }
+    }
 }

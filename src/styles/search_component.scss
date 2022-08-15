@@ -48,6 +48,14 @@
             padding: 0.5rem 1rem;
         }
     }
+    @media (min-width:1024px) and (max-width:1800px) {
+        &>.search-input-section>input {
+            width: 100%;
+            margin: 0 auto;
+            font-size: 1rem;
+            padding: 0.4rem 1rem;
+        }
+    }
 }
 
 .display-searchs {

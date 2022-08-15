@@ -1,19 +1,20 @@
 import React, { memo} from 'react'
-import {BsFillInfoCircleFill} from 'react-icons/bs'
-import { AdToFavsBTN ,InfMovBtn,PlayBtn} from '../buttons'
+import { useLocation } from 'react-router-dom'
+import { AdToFavsBTN ,InfMovBtn,PlayBtn, RemoveFav} from '../buttons'
 import ImageAsync from '../Img-Async'
 import './../../styles/moviecard.scss'
 
 
 
 const MovieCard =({id,title,poster,data, isFav})=>{
+    let {pathname} = useLocation()
     return (<div className='movie-card'>
-        <ImageAsync url={`https://image.tmdb.org/t/p/original/${poster}`} title={title}/>
+        <ImageAsync url={`https://image.tmdb.org/t/p/w185/${poster}`} title={title}/>
         <div className='movie-card-overlay'>
             <p>{title}</p>
             <div className='overlay-options-card'>
                 <PlayBtn key={id+'play-btn'} idMovie={id}/>
-                <AdToFavsBTN key={'addFavsBtn'} disabled={isFav} data={data}/>
+                {pathname!=='/Mylist' &&<AdToFavsBTN key={'addFavsBtn'} disabled={isFav} data={data}/> || <RemoveFav id={id}/>}
                 <InfMovBtn id={id}/>
             </div>
         </div>

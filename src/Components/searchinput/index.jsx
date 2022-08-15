@@ -36,7 +36,7 @@ export const SearchInput = ({closeSearch=null,icon=null}) => {
             ref={inputref}
             maxLength={20}
             onChange={handleChange}
-            placeholder='search by title'
+            placeholder='search'
             autoComplete='off'
             required />
             {icon && <HiSearchCircle className="icon-search-input"/>}

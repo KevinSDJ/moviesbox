@@ -3,13 +3,15 @@ import { sharingIDmovieToInfo } from '../../services/sharingIDmovieToInfo.servic
 import { sharingIDmovieToTrailer } from '../../services/sharingIDmovieTotrailer.service'
 import './../../styles/overlayposter.scss'
 
-const OvPosterCard = ({id, title, poster_path ,overview, name}) => {
+const OvPosterCard = ({id, title, poster_path ,overview, name,release_date}) => {
     return (
         <>
             <div className="overlay-poster" >
-                <img className="overlay-poster-image" src={`https://image.tmdb.org/t/p/original/${poster_path}`} alt={title} />
+                <img className="overlay-poster-image" src={`https://image.tmdb.org/t/p/w300/${poster_path}`} alt={title} />
                 <div className="overlay-circle">
-                    <p>{title}</p>
+                    <span>{release_date}</span>
+                    <h4>{title || name}</h4>
+                   
                     <button onClick={()=>{
                         sharingIDmovieToTrailer.setSubject(id)
                         }}><BsFillPlayBtnFill/></button>
