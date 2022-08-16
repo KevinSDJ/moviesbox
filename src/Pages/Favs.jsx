@@ -20,7 +20,7 @@ const Favs = () => {
             <BackBtn />
             <h1>Your selection</h1>
             {!data?.length && <div style={{display:'flex',alignItems:'center',flexDirection:'column'}}> <p style={{textAlign:'center',color:'white'}}>¿?</p><img  width={300} src={ImageMeme}/></div> ||<div className="favs-page-content">
-               {data.map(e => <MovieCard key={e.title + ' fav'} id={e.id} data={e} poster={e.poster_path} title={e.title} isFav={Boolean(isFavourite(data,e.title))} />)}
+               {data.map(e => <MovieCard key={e.title + ' fav'} id={e.id} data={e} poster={e.poster_path} title={e.title} isFav={Boolean(isFavourite(data,e?.id))} />)}
             </div>}
          </div>
       </motion.div>)

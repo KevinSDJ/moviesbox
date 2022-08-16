@@ -30,7 +30,7 @@ const SlidesSection = ({ section }) => {
       >
         <h5 className="section-title" >{sect[section].title}</h5>
         {data.movies?.results?.map((e, i) => <SwiperSlide className='swiper-slide-section' key={e.id + e.title} >
-          <MovieCard id={e.id} title={e.title} poster={e.poster_path} data={e} isFav={isFavourite(favs,e.title)} />
+          <MovieCard id={e.id} title={e.title} poster={e.poster_path} data={e} isFav={isFavourite(favs,e?.id)} />
         </SwiperSlide>)}
       </Swiper>
     )

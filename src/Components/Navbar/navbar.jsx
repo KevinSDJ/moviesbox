@@ -19,7 +19,6 @@ const Navbar = () => {
                 {pathname === '/' && <SearchButton/>}
                 <div className='nav-link' >
                    <li className={pathname==='/Mylist'&& 'active-link-nav'||null}><Link to='/Mylist'>My list</Link></li>
-                   <li>About</li>
                 </div>
                 <MobileMenu/>
             </div>

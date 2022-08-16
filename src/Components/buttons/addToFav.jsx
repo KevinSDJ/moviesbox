@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { setFavsMovie } from '../../store/slices/favlist.slice'
 import './../../styles/addTofavBtn.scss'
 
-export const AdToFavsBTN=({data,disabled})=>{
+export const AddToFavsBTN=({data,disabled})=>{
     let dispatch= useDispatch()
     const handleClick=()=>{
         dispatch(setFavsMovie(data))

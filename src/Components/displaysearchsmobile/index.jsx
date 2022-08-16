@@ -24,7 +24,7 @@ const ViewsSearchs=({query})=>{
     >
     {({data,index,style})=>{
         return (<li style={style}>
-        <LitlePreview id={data[index].id} poster={data[index].poster_path} title={data[index].title}/>
+        <LitlePreview data={data[index]} id={data[index].id} poster={data[index].poster_path} title={data[index].title}/>
         </li>)
     }}
     </List>}

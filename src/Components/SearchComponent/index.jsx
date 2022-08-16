@@ -2,11 +2,6 @@ import {motion} from 'framer-motion'
 import {SearchInput} from './../searchinput'
 import './../../styles/search_component.scss'
 
-
-
-
-
-
 const SearchComponent=({children,closeSearch=null,icon=null})=>{
     return(
     <motion.div

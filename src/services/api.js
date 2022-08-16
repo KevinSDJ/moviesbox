@@ -7,7 +7,7 @@ export const MoviesApi = createApi({
     baseQuery:fetchBaseQuery({baseUrl:'https://api.themoviedb.org/3/',}),
     endpoints:(build)=>({
         getSearch:build.query({
-            query:(title)=>({url:`/search/multi?language=en-US&query=${title}&page=1&include_adult=false&${key_api}`}),
+            query:(title)=>({url:`/search/movie?language=en-US&query=${title}&page=1&include_adult=false&${key_api}`}),
             transformResponse:(response,meta,arg)=> response?.results
         }),
         getVideoTrailer:build.query({

@@ -1,4 +1,4 @@
 
-export const isFavourite = (data,title) => {
-    return data?.filter(it => it.title === title).length > 0
+export const isFavourite = (data,id) => {
+    return data?.filter(it => it.id === id).length > 0
 }

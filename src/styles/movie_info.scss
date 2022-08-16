@@ -410,10 +410,13 @@
                 .clasif-and-duration {
                     display: flex;
                     flex-direction: row;
-                    align-items: center;
+                    align-items: center !important;
                     padding: 0;
-                    gap: 1.5rem;
-
+                    gap: 1.2rem !important;
+                    .genres{
+                        display: flex !important;
+                        flex-wrap: wrap;
+                    }
                     .certification {
                         color: #ff5f03;
                         ;

@@ -13,7 +13,7 @@ const ViewDataList=({query})=>{
 
     return (<div className='display-searchs' >
     {isFetching && <span>Loading ...</span>}
-    {error && <span>Not found</span>}
+    {error || !currentData?.length && <span>Not found</span>}
     {currentData && <List
     innerElementType={'ul'}
     itemData={currentData}
@@ -26,8 +26,7 @@ const ViewDataList=({query})=>{
     >
     {({data,index,style})=>{
         return (<li style={style}>
-        {console.log(currentData)}
-        <LitlePreview id={data[index].id} poster={data[index].poster_path} title={data[index].title}/>
+        <LitlePreview data={data[index]} id={data[index].id} poster={data[index].poster_path} title={data[index].title}/>
         </li>)
     }}
     </List>}
