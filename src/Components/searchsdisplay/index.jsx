@@ -13,7 +13,7 @@ const ViewDataList=({query})=>{
 
     return (<div className='display-searchs' >
     {isFetching && <span>Loading ...</span>}
-    {error || !currentData?.length && <span>Not found</span>}
+    {error && <span>Not found</span>}
     {currentData && <List
     innerElementType={'ul'}
     itemData={currentData}
