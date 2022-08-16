@@ -1,18 +1,26 @@
+import {memo} from 'react'
 import Youtube from 'react-youtube'
 import { useGetVideoTrailerQuery } from '../../services/api'
 import './index.scss'
 
-export const Plyr_run= ({id})=>{
-    const {data,error,isFetching} = useGetVideoTrailerQuery(id)
+const Plyr_run= ({id=null})=>{
+    const {data,error,isFetching} = useGetVideoTrailerQuery(id,{skip:!Boolean(id)})
+    console.log("player render")
+    if(!id){
+        return (<></>)
+    }
     if(!data?.length)return (<div>No hay trailer</div>)
-    return (<Youtube
-        className='video-youtube-component'
-        videoId={data[0].key}
-        iframeClassName='video-youtube-iframe'
-        onError={(e)=>console.lot(e)}
-        loading={'lazy'}
-        opts={{
-            playerVars:{autoplay:0,enablejsapi:0,showinfo:0,origin:window.location.host},
-            }}
-    />)
+    return (
+    <iframe
+    className='video-youtube-iframe' src={'https://www.youtube.com/embed/'+data[0].key}
+    frameborder="0" 
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;fullscreen" 
+    allowfullscreen="allowfullscreen"
+    mozallowfullscreen="mozallowfullscreen" 
+    msallowfullscreen="msallowfullscreen" 
+    oallowfullscreen="oallowfullscreen" 
+    webkitallowfullscreen="webkitallowfullscreen"
+     />)
 }
+
+export default memo(Plyr_run)

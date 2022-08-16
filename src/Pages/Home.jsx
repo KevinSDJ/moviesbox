@@ -20,8 +20,6 @@ const Home = () => {
         <div className='sections-container'>
             <Suspense fallback={<SlideSectionSkeleton/>}>
                  <SlidesSection section={'popularity'}/>
-            </Suspense>
-            <Suspense fallback={<SlideSectionSkeleton/>}>
                  <SlidesSection section={'upcomming'}/>
             </Suspense>
         </div>

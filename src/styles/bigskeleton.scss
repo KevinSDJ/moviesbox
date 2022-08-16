@@ -66,6 +66,12 @@
     justify-content:center;
     overflow: hidden;
     background: #17445e;
+    @media (min-width:280px) and (max-width:700px){
+      width:100vw;
+      height: 100vh;
+      position: relative;
+      display:block
+    }
     @media (min-width:1000px) and (max-width:1800px) {
         height: 100vh !important;
     }
@@ -77,6 +83,13 @@
     transform: translateZ(0) scale(1);
     backface-visibility: hidden;
     transform-origin: 0 0; /* see note above */
+    @media (min-width:280px) and (max-width:700px){
+      width:fit-content;
+      position:absolute;
+      top:calc(30vh);
+      left: calc(20vw);
+
+    }
     @media (min-width:1000px) and (max-width:1800px) {
         width: 200px;
         height: 200px;
