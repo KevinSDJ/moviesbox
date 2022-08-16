@@ -5,17 +5,23 @@ import './index.scss'
 
 const Plyr_run= ({id=null})=>{
     const {data,error,isFetching} = useGetVideoTrailerQuery(id,{skip:!Boolean(id)})
-    console.log("player render")
+    
     if(!id){
         return (<></>)
     }
     if(!data?.length)return (<div>No hay trailer</div>)
+    
+    function filtred (array){
+        let newArray= array.filter(e=> e.type==='Trailer' )
+        console.log(newArray)
+        return newArray[newArray.length>3 && 2 ||0]?.key
+    }
     return (
     <iframe
-    className='video-youtube-iframe' src={'https://www.youtube.com/embed/'+data[0].key}
-    frameborder="0" 
+    className='video-youtube-iframe' src={'https://www.youtube-nocookie.com/embed/'+filtred(data)}
+    frameBorder="0" 
     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture;fullscreen" 
-    allowfullscreen="allowfullscreen"
+    allowFullScreen
     mozallowfullscreen="mozallowfullscreen" 
     msallowfullscreen="msallowfullscreen" 
     oallowfullscreen="oallowfullscreen" 

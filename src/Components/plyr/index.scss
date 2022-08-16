@@ -1,11 +1,21 @@
 .video-youtube-iframe{
     border: none;
-    width:800px;
-    height: 400px;
     padding: 0.2rem !important;
     margin: 0 !important;
     @media (min-width:280px) and (max-width:700px){
         width: 95vw;
         height: calc(100vw / 2);
+    }
+    @media (min-width:700px) and (max-width:900px){
+        width:80vw;
+        height: calc(100vw / 2);
+    }
+    @media (min-width:900px) and (max-width:1024px){
+        width:60vw;
+        height: calc(100vw / 3);
+    }
+    @media (min-width:1024px) and (max-width:1900px){
+        width:60vw;
+        height: calc(100vw / 3);
     }
 }
