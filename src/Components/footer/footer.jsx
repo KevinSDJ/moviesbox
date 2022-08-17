@@ -11,7 +11,7 @@ import './index.scss'
         <a href="https://www.linkedin.com/in/kevin-sebastian-de-jesus/" target={'_blank'}><i className="fa fa-linkedin"></i></a>
         </div>
         <div className="row">
-        Copyright © 2022 MovieBox - All rights reserved? mm no || Developed with love and frustration: KevinSDJ 🤘
+        Copyright © 2022 MovieBox || Developed by: KevinSDJ 🤘
         </div>
         </div>
         </footer>
